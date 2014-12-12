@@ -50,14 +50,41 @@ namespace MonoAndroidDemo
 
       chart.Aspect.View3D = Needs3D(chart[0]);
       //chart.Panel.Transparent = true;
+
       if (chart[0] is Steema.TeeChart.Styles.Pie)
       {
         var pie = (Steema.TeeChart.Styles.Pie)chart[0];
-        pie.EdgeStyle = Steema.TeeChart.Drawing.EdgeStyles.Flat;
-        pie.BevelPercent = 30;
 
+        pie.Marks.Visible = false;
+        pie.BevelPercent = 25;
+        pie.Pen.Visible = false;
+        pie.EdgeStyle = Steema.TeeChart.Drawing.EdgeStyles.Flat;
+        pie.Circled = true;
+        pie.FillSampleValues(6);
+        chart.Legend.Visible = true;
+        chart.Legend.Font.Size = 15;
+        chart.Legend.Transparency = 30;
+        chart.Legend.Alignment = Steema.TeeChart.LegendAlignments.Bottom;
+        chart.Aspect.View3D = true;
+        chart.Aspect.VertOffset = -20;
+
+        if (!(pie is Steema.TeeChart.Styles.Donut))
+        {
+          chart.Aspect.Chart3DPercent = 30;
+          pie.BevelPercent = 15;
+          chart.Legend.Transparent = true;
+          chart.Legend.Font.Size = 16;
+        }
+
+        chart.Header.Text = "Touch a slice to explode it";
         chart.Legend.Visible = false;
         chart.Aspect.Elevation = 300;
+
+        chart.ClickSeries += chart_ClickSeries;
+      }
+      else
+      {
+        chart.ClickSeries -= chart_ClickSeries;
       }
 
       if (chart[0] is Steema.TeeChart.Styles.Gantt || chart[0] is Steema.TeeChart.Styles.Funnel)
@@ -65,7 +92,95 @@ namespace MonoAndroidDemo
         chart.Legend.Alignment = Steema.TeeChart.LegendAlignments.Bottom;
       }
 
+      if (chart[0] is Steema.TeeChart.Styles.Custom3DPalette)
+      {
+        if (!(chart[0] is Steema.TeeChart.Styles.Contour) &&
+            !(chart[0] is Steema.TeeChart.Styles.ColorGrid) &&
+            !(chart[0] is Steema.TeeChart.Styles.Ternary))
+        {
+          chart.Legend.Alignment = Steema.TeeChart.LegendAlignments.Bottom;
+          chart.Legend.Font.Size = 30;
+          chart.Legend.Visible = false;
+          chart.Header.Text = "Drag to rotate";
+          chart.Header.Font.Size = 30;
+          chart.Walls.Visible = false;
+
+          if (chart[0] is Steema.TeeChart.Styles.TriSurface)
+          {
+            chart.Aspect.Chart3DPercent = 30;
+          }
+          else
+          {
+            chart.Axes.Bottom.Increment = 1;
+
+            chart.Aspect.Orthogonal = false;
+            chart.Aspect.Chart3DPercent = 70;
+            chart.Aspect.Rotation = 310;
+            chart.Aspect.Zoom = 70;
+            chart.Aspect.Perspective = 100;
+          }
+
+          chart.Tools.Add(new Steema.TeeChart.Tools.Rotate()); 
+        }
+        else if (chart[0] is Steema.TeeChart.Styles.Contour)
+        {
+          ((Steema.TeeChart.Styles.Custom3DPalette)chart[0]).Pen.Width = 3;
+        }
+
+        ((Steema.TeeChart.Styles.Custom3DPalette)chart[0]).UseColorRange = false;
+        ((Steema.TeeChart.Styles.Custom3DPalette)chart[0]).UsePalette = true;
+        ((Steema.TeeChart.Styles.Custom3DPalette)chart[0]).PaletteStyle = Steema.TeeChart.Styles.PaletteStyles.Strong;
+      }
+
+      if ((chart[0] is Steema.TeeChart.Styles.CircularGauge) 
+          || (chart[0] is Steema.TeeChart.Styles.CustomGauge))
+      {
+        chart.ClickSeries += chart_ClickSeries;
+      }
+      else
+      {
+        chart.ClickSeries -= chart_ClickSeries;
+      }
+
+      //if (((chart[0] is Steema.TeeChart.Styles.Line) || (chart[0] is Steema.TeeChart.Styles.Points))
+      //    && !(chart[0] is Steema.TeeChart.Styles.Bubble))
+      //{
+      //  chart.Header.Text = "Touch series for tool tip"; 
+      //  chart.ClickSeries += chart_ClickSeries;
+      //}
+      //else
+      //{
+      //  chart.ClickSeries -= chart_ClickSeries;
+      //}
+
       SetContentView(chart);
+    }
+
+    void chart_ClickSeries(object sender, Steema.TeeChart.Styles.Series s, int valueIndex, MotionEvent e)
+    {
+      if (s is Steema.TeeChart.Styles.Pie)
+      {
+        var pie = (Steema.TeeChart.Styles.Pie)s;
+        pie.ExplodedSlice[valueIndex] = (pie.ExplodedSlice[valueIndex] > 0) ? 0 : 15;
+      }
+
+      if ((chart[0] is Steema.TeeChart.Styles.Line) || (chart[0] is Steema.TeeChart.Styles.Points))
+      {
+        string text = (valueIndex != -1) ? "point index " + valueIndex.ToString() : "no point clicked";
+        ShowToast(text);
+      }
+
+      if ((s is Steema.TeeChart.Styles.CircularGauge) || (s is Steema.TeeChart.Styles.CustomGauge))
+      {
+        //To-Do
+      }
+    }
+
+    private void ShowToast(string text)
+    {
+      Toast
+          .MakeText(this, text, ToastLength.Short)
+          .Show();
     }
 
     bool Needs3D(Steema.TeeChart.Styles.Series series)

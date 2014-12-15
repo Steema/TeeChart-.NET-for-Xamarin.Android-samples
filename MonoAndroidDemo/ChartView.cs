@@ -79,12 +79,6 @@ namespace MonoAndroidDemo
         chart.Header.Text = "Touch a slice to explode it";
         chart.Legend.Visible = false;
         chart.Aspect.Elevation = 300;
-
-        chart.ClickSeries += chart_ClickSeries;
-      }
-      else
-      {
-        chart.ClickSeries -= chart_ClickSeries;
       }
 
       if (chart[0] is Steema.TeeChart.Styles.Gantt || chart[0] is Steema.TeeChart.Styles.Funnel)
@@ -132,8 +126,9 @@ namespace MonoAndroidDemo
         ((Steema.TeeChart.Styles.Custom3DPalette)chart[0]).PaletteStyle = Steema.TeeChart.Styles.PaletteStyles.Strong;
       }
 
-      if ((chart[0] is Steema.TeeChart.Styles.CircularGauge) 
-          || (chart[0] is Steema.TeeChart.Styles.CustomGauge))
+      if ((chart[0] is Steema.TeeChart.Styles.Pie) ||
+          (chart[0] is Steema.TeeChart.Styles.CircularGauge) || 
+          (chart[0] is Steema.TeeChart.Styles.CustomGauge))
       {
         chart.ClickSeries += chart_ClickSeries;
       }
@@ -185,8 +180,8 @@ namespace MonoAndroidDemo
 
     bool Needs3D(Steema.TeeChart.Styles.Series series)
     {
-      return (((series is Steema.TeeChart.Styles.Custom3D) && !(/*(series is Steema.TeeChart.Styles.ColorGrid)   
-                                                            || */(series is Steema.TeeChart.Styles.Contour)
+      return (((series is Steema.TeeChart.Styles.Custom3D) && !((series is Steema.TeeChart.Styles.ColorGrid)   
+                                                            || (series is Steema.TeeChart.Styles.Contour)
                                                             || (series is Steema.TeeChart.Styles.Map)
                                                             || (series is Steema.TeeChart.Styles.Ternary))) 
                                                             || (series is Steema.TeeChart.Styles.Pie));

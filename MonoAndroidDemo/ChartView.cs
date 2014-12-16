@@ -14,9 +14,9 @@ namespace MonoAndroidDemo
   {
     Steema.TeeChart.TChart chart;
 
-    protected override void OnCreate(Bundle bundle)
+    protected override void OnCreate(Bundle savedInstanceState)
     {
-      base.OnCreate(bundle);
+      base.OnCreate(savedInstanceState);
 
       chart = new Steema.TeeChart.TChart (ApplicationContext);
 
@@ -51,6 +51,11 @@ namespace MonoAndroidDemo
       chart.Aspect.View3D = Needs3D(chart[0]);
       //chart.Panel.Transparent = true;
 
+      if (chart[0] is Steema.TeeChart.Styles.Circular)
+      {
+        (chart[0] as Steema.TeeChart.Styles.Circular).Circled = true;
+      }
+
       if (chart[0] is Steema.TeeChart.Styles.Pie)
       {
         var pie = (Steema.TeeChart.Styles.Pie)chart[0];
@@ -67,6 +72,7 @@ namespace MonoAndroidDemo
         chart.Legend.Alignment = Steema.TeeChart.LegendAlignments.Bottom;
         chart.Aspect.View3D = true;
         chart.Aspect.VertOffset = -20;
+        chart.Aspect.Elevation = 300;
 
         if (!(pie is Steema.TeeChart.Styles.Donut))
         {
@@ -78,7 +84,6 @@ namespace MonoAndroidDemo
 
         chart.Header.Text = "Touch a slice to explode it";
         chart.Legend.Visible = false;
-        chart.Aspect.Elevation = 300;
       }
 
       if (chart[0] is Steema.TeeChart.Styles.Gantt || chart[0] is Steema.TeeChart.Styles.Funnel)

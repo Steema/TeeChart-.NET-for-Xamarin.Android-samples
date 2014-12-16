@@ -13,9 +13,9 @@ namespace MonoAndroidDemo
   {
     TChart tChart;
 
-    protected override void OnCreate(Bundle bundle)
+    protected override void OnCreate(Bundle savedInstanceState)
     {
-      base.OnCreate(bundle);
+      base.OnCreate(savedInstanceState);
 
       SetContentView(Resource.Layout.Editor);
 

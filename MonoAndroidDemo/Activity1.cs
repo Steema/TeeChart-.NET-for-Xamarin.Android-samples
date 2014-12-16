@@ -10,9 +10,9 @@ namespace MonoAndroidDemo
   [Activity(Label = "Xamarin.Android Demo", MainLauncher = true, Icon = "@drawable/icon")]
   public class Activity1 : Activity  
   {
-    protected override void OnCreate(Bundle bundle)
+    protected override void OnCreate(Bundle savedInstanceState)
     {
-      base.OnCreate(bundle);
+      base.OnCreate(savedInstanceState);
 
       // Set our view from the "main" layout resource
       SetContentView(Resource.Layout.Main);				

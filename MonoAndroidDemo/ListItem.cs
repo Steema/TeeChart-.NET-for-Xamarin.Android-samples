@@ -7,9 +7,9 @@ namespace MonoAndroidDemo
 	[Activity (Label = "ListItem")]			
 	public class ListItem : Activity
 	{
-		protected override void OnCreate (Bundle bundle)
+		protected override void OnCreate (Bundle savedInstanceState)
 		{
-			base.OnCreate (bundle);
+			base.OnCreate (savedInstanceState);
 
       SetContentView(Resource.Layout.ListItem);
 

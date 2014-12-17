@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="com.steema.teechart.xamarin.android" android:versionCode="9" android:versionName="1.9">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="com.steema.teechart.xamarin.android" android:versionCode="10" android:versionName="1.10">
 	<application android:label="TeeChartXamarinDemo" android:debuggable="false" android:icon="@drawable/Icon"></application>
 	<uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17" />
 </manifest>

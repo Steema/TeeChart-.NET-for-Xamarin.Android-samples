@@ -95,7 +95,8 @@ namespace MonoAndroidDemo
       {
         if (!(chart[0] is Steema.TeeChart.Styles.Contour) &&
             !(chart[0] is Steema.TeeChart.Styles.ColorGrid) &&
-            !(chart[0] is Steema.TeeChart.Styles.Ternary))
+            !(chart[0] is Steema.TeeChart.Styles.Ternary) &&
+            !(chart[0] is Steema.TeeChart.Styles.BubbleCloud))
         {
           chart.Legend.Alignment = Steema.TeeChart.LegendAlignments.Bottom;
           chart.Legend.Font.Size = 30;
@@ -124,6 +125,11 @@ namespace MonoAndroidDemo
         else if (chart[0] is Steema.TeeChart.Styles.Contour)
         {
           ((Steema.TeeChart.Styles.Custom3DPalette)chart[0]).Pen.Width = 3;
+          ((Steema.TeeChart.Styles.Contour)chart[0]).FillLevels = true;
+        }
+        else if (chart[0] is Steema.TeeChart.Styles.BubbleCloud)
+        {
+          chart.Legend.Alignment = Steema.TeeChart.LegendAlignments.Bottom;
         }
 
         ((Steema.TeeChart.Styles.Custom3DPalette)chart[0]).UseColorRange = false;

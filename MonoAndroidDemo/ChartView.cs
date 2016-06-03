@@ -59,8 +59,7 @@ namespace MonoAndroidDemo
       if (chart[0] is Steema.TeeChart.Styles.Pie)
       {
         var pie = (Steema.TeeChart.Styles.Pie)chart[0];
-
-        pie.Marks.Visible = false;
+        
         pie.BevelPercent = 25;
         pie.Pen.Visible = false;
         pie.EdgeStyle = Steema.TeeChart.Drawing.EdgeStyles.Flat;
@@ -83,7 +82,6 @@ namespace MonoAndroidDemo
         }
 
         chart.Header.Text = "Touch a slice to explode it";
-        chart.Legend.Visible = false;
       }
 
       if (chart[0] is Steema.TeeChart.Styles.Gantt || chart[0] is Steema.TeeChart.Styles.Funnel)

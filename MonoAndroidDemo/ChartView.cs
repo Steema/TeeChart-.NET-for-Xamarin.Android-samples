@@ -6,13 +6,25 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using Android.Support.V7.App;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
+using Android.Support.V4.App;
 
 namespace MonoAndroidDemo
 {
-  [Activity(Label = "My Chart")]
-  public class ChartView : Activity
+
+  [Activity(Label = "My Chart", ParentActivity = typeof(Activity1))]
+  [MetaData("android.support.PARENT_ACTIVITY", Value = ".Activity1")]
+  public class ChartView : BaseActivity
   {
     Steema.TeeChart.TChart chart;
+    protected override int LayoutResource
+    {
+      get
+      {
+        return Resource.Layout.Chart;
+      }
+    }
 
     protected override void OnCreate(Bundle savedInstanceState)
     {
@@ -157,7 +169,10 @@ namespace MonoAndroidDemo
       //  chart.ClickSeries -= chart_ClickSeries;
       //}
 
-      SetContentView(chart);
+      var chartLayout = FindViewById<LinearLayout>(Resource.Id.chart_layout);
+      chartLayout.AddView(chart, ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
+
+      SupportActionBar.Title = Title;
     }
 
     void chart_ClickSeries(object sender, Steema.TeeChart.Styles.Series s, int valueIndex, MotionEvent e)
@@ -210,43 +225,45 @@ namespace MonoAndroidDemo
       switch (item.ItemId)
       {
         case 0:
-            ((TChartApplication)Application).Chart = chart;
-            var editorIntent = new Intent (ApplicationContext, typeof(ChartEditor));
-            StartActivityForResult(editorIntent, 1);
-            return true;
+          ((TChartApplication)Application).Chart = chart;
+          var editorIntent = new Intent(ApplicationContext, typeof(ChartEditor));
+          StartActivityForResult(editorIntent, 1);
+          return true;
         case 1:
-            var themes = new ThemesEditor(chart.Chart, 0);
-            themes.Choose(this);
-            return true;
+          var themes = new ThemesEditor(chart.Chart, 0);
+          themes.Choose(this);
+          return true;
         case 2:
-            Java.IO.File cache = ExternalCacheDir;
-            if ((cache == null) || (!cache.CanWrite()))
-            {
-                // no external cache
-                cache = CacheDir;
-            }
+          Java.IO.File cache = ExternalCacheDir;
+          if ((cache == null) || (!cache.CanWrite()))
+          {
+            // no external cache
+            cache = CacheDir;
+          }
 
-            Android.Graphics.Bitmap _currentBitmap = chart.Bitmap;
+          Android.Graphics.Bitmap _currentBitmap = chart.Bitmap;
 
-            var tempFile = new Java.IO.File(cache, "temp.jpg");
-            using (FileStream fileStream = File.OpenWrite(tempFile.AbsolutePath))
-            {
-              _currentBitmap.Compress(Android.Graphics.Bitmap.CompressFormat.Jpeg, 85, fileStream);
-            }
+          var tempFile = new Java.IO.File(cache, "temp.jpg");
+          using (FileStream fileStream = File.OpenWrite(tempFile.AbsolutePath))
+          {
+            _currentBitmap.Compress(Android.Graphics.Bitmap.CompressFormat.Jpeg, 85, fileStream);
+          }
 
-            var shareIntent = new Intent(Intent.ActionSend);
-            shareIntent.PutExtra(Intent.ExtraStream, Android.Net.Uri.FromFile(tempFile));
-            shareIntent.PutExtra(Intent.ExtraText, "Chart created with TeeChart for Xamarin.Android by www.steema.com");//"Some text - appears in tweets, not on facebook");
-            shareIntent.SetType("image/jpeg");
+          var shareIntent = new Intent(Intent.ActionSend);
+          shareIntent.PutExtra(Intent.ExtraStream, Android.Net.Uri.FromFile(tempFile));
+          shareIntent.PutExtra(Intent.ExtraText, "Chart created with TeeChart for Xamarin.Android by www.steema.com");//"Some text - appears in tweets, not on facebook");
+          shareIntent.SetType("image/jpeg");
 
-            StartActivity(Intent.CreateChooser(shareIntent, "Share Image"));
+          StartActivity(Intent.CreateChooser(shareIntent, "Share Image"));
 
-            return true;
-        default:
-            return base.OnOptionsItemSelected(item);
-      }      
+          return true;
+        case Android.Resource.Id.Home:
+          NavUtils.NavigateUpFromSameTask(this);
+          break;
+      }
+
+      return base.OnOptionsItemSelected(item);      
     }
-
     
     void DoExport()
     {

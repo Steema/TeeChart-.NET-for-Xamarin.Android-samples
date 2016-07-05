@@ -21,7 +21,7 @@
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -37,7 +37,7 @@
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
     <BundleAssemblies>False</BundleAssemblies>
     <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86,x86_64</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
     <JavaMaximumHeapSize />
@@ -64,9 +64,34 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Android.Support.Animated.Vector.Drawable.23.4.0\lib\MonoAndroid403\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Android.Support.Design.23.4.0\lib\MonoAndroid43\Xamarin.Android.Support.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Android.Support.v4.23.4.0\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Android.Support.v7.AppCompat.23.4.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Android.Support.v7.RecyclerView.23.4.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Android.Support.Vector.Drawable.23.4.0\lib\MonoAndroid403\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity1.cs" />
+    <Compile Include="BaseActivity.cs" />
     <Compile Include="ChartEditor.cs" />
     <Compile Include="ChartView.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -77,6 +102,7 @@
     <Compile Include="ThemesEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml">
@@ -86,8 +112,8 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\Values\Arrays.xml" />
-  </ItemGroup>
-  <ItemGroup>
+    <AndroidResource Include="Resources\Layout\toolbar.axml"/>
+    <AndroidResource Include="Resources\Layout\Chart.axml"/>
     <AndroidResource Include="Resources\Layout\Main.axml" />
     <AndroidResource Include="Resources\Layout\ListItem.axml" />
     <AndroidResource Include="Resources\Drawable\area.png" />
@@ -146,13 +172,16 @@
     <AndroidResource Include="Resources\Drawable\waterfall.png" />
     <AndroidResource Include="Resources\Drawable\windrose.png" />
     <AndroidResource Include="Resources\Drawable\logo57x57.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\Drawable\Icon.png" />
-  </ItemGroup>
+    <AndroidResource Include="Resources\Drawable\bubble.png" />
+    <AndroidResource Include="Resources\Drawable\points3D.png" />
+    <AndroidResource Include="Resources\Drawable\pointfigure.png" />
+    <AndroidResource Include="Resources\Drawable\orgseries.png" />
+    <AndroidResource Include="Resources\Drawable\verticallineargauge.png" />
+	<AndroidResource Include="Resources\Values\Styles.xml" />
+    <AndroidResource Include="Resources\Values-v21\Styles.xml" />
+</ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
@@ -161,21 +190,6 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\bubble.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\points3D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\pointfigure.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\orgseries.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\verticallineargauge.png" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Sources\TeeChart.Android\TeeChart.Android20.csproj">
       <Project>{33144B02-758B-4D56-BA12-E9DDC4D47E03}</Project>

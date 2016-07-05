@@ -236,7 +236,7 @@ namespace MonoAndroidDemo
 
             var shareIntent = new Intent(Intent.ActionSend);
             shareIntent.PutExtra(Intent.ExtraStream, Android.Net.Uri.FromFile(tempFile));
-            shareIntent.PutExtra(Intent.ExtraText, "Chart created with TeeChart Mono for Android by www.steema.com");//"Some text - appears in tweets, not on facebook");
+            shareIntent.PutExtra(Intent.ExtraText, "Chart created with TeeChart for Xamarin.Android by www.steema.com");//"Some text - appears in tweets, not on facebook");
             shareIntent.SetType("image/jpeg");
 
             StartActivity(Intent.CreateChooser(shareIntent, "Share Image"));

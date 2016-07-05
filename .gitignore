@@ -1,4 +1,5 @@
 *.sln
-**/obj*/
-**/bin*/
-**/packages/
+[Oo]bj/
+[Bb]in/
+[Cc]omponents/
+packages/

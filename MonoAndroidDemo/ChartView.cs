@@ -1,20 +1,15 @@
-using System;
-
 using System.IO;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Android.Support.V7.App;
-using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V4.App;
 
 namespace MonoAndroidDemo
 {
-
   [Activity(Label = "My Chart", ParentActivity = typeof(Activity1))]
-  [MetaData("android.support.PARENT_ACTIVITY", Value = ".Activity1")]
+  [MetaData("android.support.PARENT_ACTIVITY", Value = "com.steema.teechart.xamarin.android.Activity1")]
   public class ChartView : BaseActivity
   {
     Steema.TeeChart.TChart chart;
@@ -33,16 +28,16 @@ namespace MonoAndroidDemo
       chart = new Steema.TeeChart.TChart (ApplicationContext);
 
       chart.Zoom.Style = Steema.TeeChart.ZoomStyles.Classic;
-      var myTheme = new Steema.TeeChart.Themes.BlackIsBackTheme(chart.Chart);
+      var myTheme = new Steema.TeeChart.Themes.LookoutTheme(chart.Chart);
       myTheme.Apply();
 
       Bundle extras = Intent.Extras;
-      int seriesType = extras.GetInt("SeriesPosition");
+      var seriesType = extras.GetInt("SeriesPosition");
 
       var tmp = Steema.TeeChart.Utils.SeriesTypesOf [seriesType];
       Steema.TeeChart.Styles.Series series;
 
-      this.Title = tmp.ToString().Replace("Steema.TeeChart.Styles.", "");
+      Title = tmp.ToString().Replace("Steema.TeeChart.Styles.", "");
 
       //Some series can not work without a parent chart due to internal structure.
       if (tmp.Name == "TreeMap")
@@ -185,7 +180,7 @@ namespace MonoAndroidDemo
 
       if ((chart[0] is Steema.TeeChart.Styles.Line) || (chart[0] is Steema.TeeChart.Styles.Points))
       {
-        string text = (valueIndex != -1) ? "point index " + valueIndex.ToString() : "no point clicked";
+        string text = (valueIndex != -1) ? "point index " + valueIndex : "no point clicked";
         ShowToast(text);
       }
 
@@ -195,7 +190,7 @@ namespace MonoAndroidDemo
       }
     }
 
-    private void ShowToast(string text)
+    void ShowToast(string text)
     {
       Toast
           .MakeText(this, text, ToastLength.Short)

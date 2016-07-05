@@ -11,9 +11,9 @@ namespace MonoAndroidDemo
       get;
       set;
     }
-    protected override void OnCreate(Bundle bundle)
+    protected override void OnCreate(Bundle savedInstanceState)
     {
-      base.OnCreate(bundle);
+      base.OnCreate(savedInstanceState);
       SetContentView(LayoutResource);
       Toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
       if (Toolbar != null)

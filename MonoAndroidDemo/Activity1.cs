@@ -1,15 +1,11 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using Android.Support.V7.App;
-using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace MonoAndroidDemo
 {
-  [Activity(Label = "Xamarin.Android Demo", MainLauncher = true, Icon = "@drawable/icon")]
+  [Activity(Name = "com.steema.teechart.xamarin.android.Activity1", Label = "Xamarin.Android Demo", MainLauncher = true, Icon = "@drawable/icon")]
   public class Activity1 : BaseActivity
   {
     protected override int LayoutResource

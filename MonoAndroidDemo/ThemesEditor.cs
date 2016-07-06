@@ -12,32 +12,25 @@ namespace MonoAndroidDemo
   {
     Chart chart;
 	  int selected;
-
-	  String[] themes = new String[Theme.ChartThemes.Count];
+    string[] themes;
 
 	  public ThemesEditor(Chart chart, int selected) 
     {
       this.chart = chart.Chart;
       this.selected = selected;
-
-      for (int t = 0; t < themes.Length; t++)
-      {
-        themes[t] = Theme.ChartThemes[t].Name; //ThemesList.getThemeDescription(t);
-      }
+      themes = Enum.GetNames(typeof(ThemeType));
 	  }
 
     public void Choose(Context context) 
     {
-      AlertDialog.Builder builder = new AlertDialog.Builder(context)
+      var builder = new AlertDialog.Builder(context)
           .SetTitle("Select Theme")
           .SetPositiveButton(Android.Resource.String.Ok, delegate
             {
               Toast
                 .MakeText(context, themes[selected], ToastLength.Short)
                 .Show();
-
-              var tmpTheme = (Theme)Activator.CreateInstance(Theme.ChartThemes[selected]);
-              tmpTheme.Apply(chart);
+              chart.Parent.SetCurrentThemeType((ThemeType)selected);
             })
             .SetNegativeButton(Android.Resource.String.Cancel, CancelClicked);
 

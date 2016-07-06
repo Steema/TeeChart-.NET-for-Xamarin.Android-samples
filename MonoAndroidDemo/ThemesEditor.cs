@@ -10,34 +10,34 @@ namespace MonoAndroidDemo
 {
   class ThemesEditor
   {
-    Chart chart;
-	  int selected;
-    string[] themes;
+    TChart tChart;
+	  int themeIdx;
 
-	  public ThemesEditor(Chart chart, int selected) 
+	  public ThemesEditor(TChart TeeChart, int Selected) 
     {
-      this.chart = chart.Chart;
-      this.selected = selected;
-      themes = Enum.GetNames(typeof(ThemeType));
+      tChart = TeeChart;
+      themeIdx = Selected;      
 	  }
 
     public void Choose(Context context) 
     {
+      var themes = Enum.GetNames(typeof(ThemeType));
+
       var builder = new AlertDialog.Builder(context)
           .SetTitle("Select Theme")
           .SetPositiveButton(Android.Resource.String.Ok, delegate
             {
               Toast
-                .MakeText(context, themes[selected], ToastLength.Short)
+                .MakeText(context, themes[themeIdx], ToastLength.Short)
                 .Show();
-              chart.Parent.SetCurrentThemeType((ThemeType)selected);
+              tChart.CurrentTheme = (ThemeType)themeIdx;
             })
-            .SetNegativeButton(Android.Resource.String.Cancel, CancelClicked);
+          .SetNegativeButton(Android.Resource.String.Cancel, CancelClicked);
 
-      builder.SetSingleChoiceItems(themes, selected, (sender, args) =>
-            {
-              selected = args.Which;          
-            });
+      builder.SetSingleChoiceItems(themes, themeIdx, (sender, args) =>
+      {
+        themeIdx = args.Which;          
+      });
 
       builder.Create().Show();
     }

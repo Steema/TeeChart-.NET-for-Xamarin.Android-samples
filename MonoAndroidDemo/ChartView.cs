@@ -224,7 +224,7 @@ namespace MonoAndroidDemo
           StartActivityForResult(editorIntent, 1);
           return true;
         case 1:
-          var themes = new ThemesEditor(chart.Chart, (int)chart.CurrentTheme);
+          var themes = new ThemesEditor(chart, (int)chart.CurrentTheme);
           themes.Choose(this);
           return true;
         case 2:

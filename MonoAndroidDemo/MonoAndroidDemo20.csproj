@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs" />
     <Compile Include="Activity1.cs" />
     <Compile Include="BaseActivity.cs" />
     <Compile Include="ChartEditor.cs" />
@@ -112,9 +113,13 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\Values\Arrays.xml" />
-    <AndroidResource Include="Resources\Layout\toolbar.axml"/>
-    <AndroidResource Include="Resources\Layout\Chart.axml"/>
-    <AndroidResource Include="Resources\Layout\Main.axml" />
+    <AndroidResource Include="Resources\Layout\toolbar.axml" />
+    <AndroidResource Include="Resources\Layout\Chart.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\Main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\Layout\ListItem.axml" />
     <AndroidResource Include="Resources\Drawable\area.png" />
     <AndroidResource Include="Resources\Drawable\arrow.png" />
@@ -179,9 +184,27 @@
     <AndroidResource Include="Resources\Drawable\pointfigure.png" />
     <AndroidResource Include="Resources\Drawable\orgseries.png" />
     <AndroidResource Include="Resources\Drawable\verticallineargauge.png" />
-	<AndroidResource Include="Resources\Values\Styles.xml" />
+    <AndroidResource Include="Resources\Values\Styles.xml" />
     <AndroidResource Include="Resources\Values-v21\Styles.xml" />
-</ItemGroup>
+    <AndroidResource Include="Resources\Layout\nav_header.axml" />
+    <AndroidResource Include="Resources\menu\nav_menu.xml" />
+    <AndroidResource Include="Resources\Drawable\ic_fiber_new_black_24dp.png" />
+    <AndroidResource Include="Resources\Drawable\ic_open_in_browser_black_24dp.png" />
+    <AndroidResource Include="Resources\Drawable\ic_web_black_24dp.png" />
+    <AndroidResource Include="Resources\Drawable\ic_info_black_24dp.png" />
+    <AndroidResource Include="Resources\Drawable\ic_email_black_24dp.png" />
+    <AndroidResource Include="Resources\Drawable\ic_call_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_menu.png" />
+    <AndroidResource Include="Resources\Layout\about.axml" />
+	<AndroidResource Include="Resources\Drawable\logo_teechart_white2.png" />
+	<AndroidResource Include="Resources\Drawable\logo_steema.png" />
+	<AndroidResource Include="Resources\Drawable\logo_google_plus.png" />
+	<AndroidResource Include="Resources\Drawable\logo_facebook.png" />
+    <AndroidResource Include="Resources\Drawable\logo_twitter.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

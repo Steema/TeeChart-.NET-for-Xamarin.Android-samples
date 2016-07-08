@@ -28,7 +28,6 @@ namespace MonoAndroidDemo
       chart = new Steema.TeeChart.TChart (ApplicationContext);
 
       chart.Zoom.Style = Steema.TeeChart.ZoomStyles.Classic;
-      chart.CurrentTheme = Steema.TeeChart.ThemeType.Lookout;
 
       Bundle extras = Intent.Extras;
       var seriesType = extras.GetInt("SeriesPosition");

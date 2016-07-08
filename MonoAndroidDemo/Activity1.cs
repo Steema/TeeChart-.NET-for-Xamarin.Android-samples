@@ -41,8 +41,6 @@ namespace MonoAndroidDemo
       //handle navigation
       navigationView.NavigationItemSelected += (sender, e) =>
       {
-        e.MenuItem.SetChecked(true);
-
         switch (e.MenuItem.ItemId)
         {
           case Resource.Id.nav_newChart:

@@ -199,10 +199,10 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_menu.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_menu.png" />
     <AndroidResource Include="Resources\Layout\about.axml" />
-	<AndroidResource Include="Resources\Drawable\logo_teechart_white2.png" />
-	<AndroidResource Include="Resources\Drawable\logo_steema.png" />
-	<AndroidResource Include="Resources\Drawable\logo_google_plus.png" />
-	<AndroidResource Include="Resources\Drawable\logo_facebook.png" />
+    <AndroidResource Include="Resources\Drawable\logo_teechart_white2.png" />
+    <AndroidResource Include="Resources\Drawable\logo_steema.png" />
+    <AndroidResource Include="Resources\Drawable\logo_google_plus.png" />
+    <AndroidResource Include="Resources\Drawable\logo_facebook.png" />
     <AndroidResource Include="Resources\Drawable\logo_twitter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
@@ -214,9 +214,9 @@
   </Target>
   -->
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Sources\TeeChart.Android\TeeChart.Android20.csproj">
+    <ProjectReference Include="..\..\..\Sources\TeeChart.Android\TeeChart.Android.csproj">
       <Project>{33144B02-758B-4D56-BA12-E9DDC4D47E03}</Project>
-      <Name>TeeChart.Android20</Name>
+      <Name>TeeChart.Android</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

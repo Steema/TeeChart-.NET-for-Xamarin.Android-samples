@@ -5,18 +5,17 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B2E24437-40A1-4E82-AF91-0EA9F366E933}</ProjectGuid>
+    <ProjectGuid>{9B277C2F-C6E2-42F3-AF12-F7C21E984039}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TeeChartAndMonoAndroid1</RootNamespace>
-    <AssemblyName>TeeChartAndMonoAndroid1</AssemblyName>
+    <RootNamespace>RealTimeCharting</RootNamespace>
+    <AssemblyName>RealTimeCharting</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <DeployExternal>False</DeployExternal>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,10 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity1.cs" />
-    <Compile Include="BatteryGauge.cs" />
-    <Compile Include="InChart.cs" />
-    <Compile Include="MultiChart.cs" />
-    <Compile Include="Pie2D.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,9 +68,9 @@
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Sources\TeeChart.Android\TeeChart.Android20.csproj">
+    <ProjectReference Include="..\..\..\Sources\TeeChart.Android\TeeChart.Android.csproj">
       <Project>{33144b02-758b-4d56-ba12-e9ddc4d47e03}</Project>
-      <Name>TeeChart.Android20</Name>
+      <Name>TeeChart.Android</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

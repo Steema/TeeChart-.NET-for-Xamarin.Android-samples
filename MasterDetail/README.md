@@ -1,5 +1,5 @@
-RealTimeCharting
-================
+Master-Detail
+=============
 
 This is sample shows series 'master-detail' functionality using TeeChart for Xamarin.Android. 
 

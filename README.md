@@ -1,3 +1,7 @@
+<a href="https://www.steema.com/product/net_android">
+<img align="right" src="http://www.teechart.net/img/logos/teechart_android.png">
+</a>
+
 TeeChart-.NET-for-Xamarin.Android-samples
 =========================================
 

@@ -55,6 +55,13 @@
   <string name="pieChartName">Pie</string>
   <string name="fstlineChartName">Fast Line</string>
   <string name="hAreaChartName">Horizontal Area</string>
+  <string name="hBarChartName">Horizontal Bar</string>
+  <string name="hLineChartName">Horizontal Line</string>
+  <string name="donutChartName">Donut</string>
+  <string name="bubbleChartName">Bubble</string>
+  <string name="ganttChartName">Gantt</string>
+  <string name="shapeChartName">Shape</string>
+  <string name="pointscatterChartName">Point/Scatter</string>
   <string name="lineChartName">Line</string>
   <string name="lineChartName">Line</string>
   <string name="lineChartName">Line</string>
@@ -64,22 +71,7 @@
   <string name="lineChartName">Line</string>
   <string name="lineChartName">Line</string>
   <string name="lineChartName">Line</string>
-  <string name="lineChartName">Line</string>
-  <string name="lineChartName">Line</string>
-  <string name="lineChartName">Line</string>
-  <string name="lineChartName">Line</string>
-  <string name="lineChartName">Line</string>
-  <string name="lineChartName">Line</string>
-  <string name="lineChartName">Line</string>
-  <!--
-    <item>Horizontal Bar</item>
-    <item>Horizontal Line</item>
-    <item>Donut</item>
-    <item>Bubble</item>
-    <item>Gantt</item>
-    <item>Shape</item>
-    <item>Point/Scatter</item>-->
 
-    <string name="hintSearchView">Search a chart</string>
+  <string name="hintSearchView">Search a chart</string>
   
 </resources>

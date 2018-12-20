@@ -5,13 +5,22 @@
 	android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+	android:background="@android:color/transparent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_main">
 
-	<android.support.v7.widget.RecyclerView
-		android:id="@+id/recyclerViewSearch"
-		android:layout_width="match_parent"
+	<ScrollView android:layout_width="match_parent"
 		android:layout_height="match_parent"
-	/>
+		android:scrollbars="vertical"
+		android:scrollIndicators="bottom|top">
+
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/recyclerViewSearch"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:paddingTop="@dimen/searchbar_height"
+			android:scrollbars="none"/>
+
+	</ScrollView>
 
 </LinearLayout>

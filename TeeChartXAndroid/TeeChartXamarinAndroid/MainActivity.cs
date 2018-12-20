@@ -1,6 +1,7 @@
 ﻿using System;
 using Android;
 using Android.App;
+using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
@@ -70,7 +71,7 @@ namespace TeeChartXamarinAndroid
 
         public override void OnBackPressed()
         {
-            DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            Android.Support.V4.Widget.DrawerLayout drawer = FindViewById<Android.Support.V4.Widget.DrawerLayout>(Resource.Id.drawer_layout);
             if(drawer.IsDrawerOpen(GravityCompat.Start))
             {
                 drawer.CloseDrawer(GravityCompat.Start);
@@ -99,54 +100,8 @@ namespace TeeChartXamarinAndroid
 
             return base.OnOptionsItemSelected(item);
         }
-        /*
-        public void circleReveal(int viewID, int posFromRight, boolean containsOverflow, final boolean isShow)
-        {
-            final View myView = FindViewById(viewID);
 
-            int width = myView.getWidth();
-
-            if (posFromRight > 0)
-                width < span class="pl-k">-=</span>(posFromRight<span class="pl-k">*</span>getResources()<span class="pl-k">.</span>getDimensionPixelSize(<span class="pl-smi">R</span><span class="pl-k">.</span>dimen<span class="pl-k">.</span>abc_action_button_min_width_material))<span class="pl-k">-</span>(getResources()<span class="pl-k">.</span>getDimensionPixelSize(<span class="pl-smi">R</span><span class="pl-k">.</span>dimen<span class="pl-k">.</span>abc_action_button_min_width_material)<span class="pl-k">/</span> <span class="pl-c1">2</span>);
-
-  if(containsOverflow)
-    width-=getResources().getDimensionPixelSize(R.dimen.abc_action_button_min_width_overflow_material);
-
-        int cx = width;
-        int cy = myView.getHeight() / 2;
-
-        Animator anim;
-  if(isShow)
-    anim = ViewAnimationUtils.createCircularReveal(myView, cx, cy, 0, (float)width);
-  else
-    anim = ViewAnimationUtils.createCircularReveal(myView, cx, cy, (float) width, 0);
-
-  anim.setDuration((long)220);
-
-  // make the view invisible when the animation is done
-  anim.addListener(new AnimatorListenerAdapter()
-        {
-            @Override
-  public void onAnimationEnd(Animator animation)
-            {
-                if (!isShow)
-                {
-                    super.onAnimationEnd(animation);
-                    myView.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-  // make the view visible and start the animation
-  if(isShow)
-    myView.setVisibility(View.VISIBLE);
-
-        // start the animation
-        anim.start();
-}
-*/
-
-    public bool OnNavigationItemSelected(IMenuItem item)
+        public bool OnNavigationItemSelected(IMenuItem item)
         {
             int id = item.ItemId;
 
@@ -187,7 +142,9 @@ namespace TeeChartXamarinAndroid
         void OnItemClick(object sender, int position)
         {
             int nElement = position + 1;
-            Toast.MakeText(this, "This is photo number " + nElement, ToastLength.Short).Show();
+            Intent intent = new Intent(this, typeof(ActivityCharts));
+            StartActivity(intent);
+            
         }
 
         /// <summary>

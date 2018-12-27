@@ -23,8 +23,14 @@ namespace TeeChartXamarinAndroid
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
 
-        GroupStyles groupStyles;
-        GroupStylesAdapter groupStylesAdapter;
+        #region EXTRA BUNDLE
+
+        public const string CHART_TYPE = "1000";
+
+        #endregion
+
+        MainItemsViewModel groupStyles;
+        MainItemsAdapter groupStylesAdapter;
         RecyclerView vRecyclerViewer;
         LinearLayoutManager linearLayoutManager;
 
@@ -33,7 +39,7 @@ namespace TeeChartXamarinAndroid
             base.OnCreate(savedInstanceState);
 
             // RecyclerViewer items
-            groupStyles = new GroupStyles();
+            groupStyles = new MainItemsViewModel();
 
             SetContentView(Resource.Layout.activity_main);
 
@@ -45,14 +51,14 @@ namespace TeeChartXamarinAndroid
             SetSupportActionBar(toolbar);
             AppBarLayout appBarLayout = FindViewById<AppBarLayout>(Resource.Id.topbarLayout);
 
-            vRecyclerViewer.AddOnScrollListener(new GroupStylesScroll(appBarLayout, toolbar));
+            vRecyclerViewer.AddOnScrollListener(new MainItemsScroll(appBarLayout, toolbar));
 
             // Set layoutManager to RecyclerViewer  
             linearLayoutManager = new LinearLayoutManager(this);
             vRecyclerViewer.SetLayoutManager(linearLayoutManager);
 
             // RecyclerViewer adapter and setAdapter
-            groupStylesAdapter = new GroupStylesAdapter(groupStyles);
+            groupStylesAdapter = new MainItemsAdapter(groupStyles);
             groupStylesAdapter.ItemClick += OnItemClick;
             vRecyclerViewer.SetAdapter(groupStylesAdapter);
 
@@ -143,20 +149,71 @@ namespace TeeChartXamarinAndroid
         {
             int nElement = position + 1;
             Intent intent = new Intent(this, typeof(ActivityCharts));
+            intent.PutExtra(CHART_TYPE, GetChartGroupEnum(nElement).ToString());
             StartActivity(intent);
             
         }
 
+        private Enums.ChartGroupEnum GetChartGroupEnum(int position)
+        {
+            Enums.ChartGroupEnum chartGroupEnum = default(Enums.ChartGroupEnum);
+            switch(position)
+            {
+                case 1:
+                    chartGroupEnum = Enums.ChartGroupEnum.StandardCharts;
+                    break;
+                case 2:
+                    chartGroupEnum = Enums.ChartGroupEnum.ProCharts;
+                    break;
+                case 3:
+                    chartGroupEnum = Enums.ChartGroupEnum.CircularGauge;
+                    break;
+                case 4:
+                    chartGroupEnum = Enums.ChartGroupEnum.Maps;
+                    break;
+                case 5:
+                    chartGroupEnum = Enums.ChartGroupEnum.TreeMap;
+                    break;
+                case 6:
+                    chartGroupEnum = Enums.ChartGroupEnum.KnobGauge;
+                    break;
+                case 7:
+                    chartGroupEnum = Enums.ChartGroupEnum.Clock;
+                    break;
+                case 8:
+                    chartGroupEnum = Enums.ChartGroupEnum.Organizational;
+                    break;
+                case 9:
+                    chartGroupEnum = Enums.ChartGroupEnum.NumericGauge;
+                    break;
+                case 10:
+                    chartGroupEnum = Enums.ChartGroupEnum.LinearGauge;
+                    break;
+                case 11:
+                    chartGroupEnum = Enums.ChartGroupEnum.Calendar;
+                    break;
+                case 12:
+                    chartGroupEnum = Enums.ChartGroupEnum.TagCloud;
+                    break;
+                case 13:
+                    chartGroupEnum = Enums.ChartGroupEnum.StandardFunctions;
+                    break;
+            }
+            return chartGroupEnum;
+        }
+
+        #region RECVIEW EXTENSIONS
+
         /// <summary>
         /// Main class adapter for recyclerView
         /// </summary>
-        private class GroupStylesAdapter : Android.Support.V7.Widget.RecyclerView.Adapter
+        private class MainItemsAdapter : Android.Support.V7.Widget.RecyclerView.Adapter
         {
 
-            private GroupStyles _groupStyles;
+            private MainItemsViewModel _groupStyles;
             public event EventHandler<int> ItemClick;
 
-            public GroupStylesAdapter(GroupStyles groupStyles)
+            public MainItemsAdapter(MainItemsViewModel groupStyles)
             {
 
                 _groupStyles = groupStyles;
@@ -167,7 +224,7 @@ namespace TeeChartXamarinAndroid
 
             public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
             {
-                GroupStylesHolder viewHolder = holder as GroupStylesHolder;
+                MainItemsHolder viewHolder = holder as MainItemsHolder;
                 viewHolder.Image.SetImageResource(_groupStyles.Items[position].Image);
                 viewHolder.Title.Text = _groupStyles.Items[position].Title;
                 viewHolder.Description.Text = _groupStyles.Items[position].Description;
@@ -175,8 +232,8 @@ namespace TeeChartXamarinAndroid
 
             public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
             {
-                View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.groupstyles_cardview, parent, false);
-                GroupStylesHolder holder = new GroupStylesHolder(itemView, OnClick);
+                View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.items_main_layout, parent, false);
+                MainItemsHolder holder = new MainItemsHolder(itemView, OnClick);
                 return holder;
             }
 
@@ -191,7 +248,7 @@ namespace TeeChartXamarinAndroid
         /// <summary>
         /// Main class holder for recyclerView
         /// </summary>
-        private class GroupStylesHolder : Android.Support.V7.Widget.RecyclerView.ViewHolder
+        private class MainItemsHolder : Android.Support.V7.Widget.RecyclerView.ViewHolder
         {
 
             public ImageView Image { get; set; }
@@ -201,7 +258,7 @@ namespace TeeChartXamarinAndroid
             private Action<int> _listener;
             private Android.Support.V7.Widget.CardView _itemView;
 
-            public GroupStylesHolder(View itemView, Action<int> listener) : base(itemView)
+            public MainItemsHolder(View itemView, Action<int> listener) : base(itemView)
             {
 
                 Image = itemView.FindViewById<ImageView>(Resource.Id.cardViewImage);
@@ -227,14 +284,14 @@ namespace TeeChartXamarinAndroid
         /// <summary>
         /// Main class scrollListener for recyclerView
         /// </summary>
-        private class GroupStylesScroll : Android.Support.V7.Widget.RecyclerView.OnScrollListener
+        private class MainItemsScroll : Android.Support.V7.Widget.RecyclerView.OnScrollListener
         {
 
             private static int SCROLL_DIRECTION_UP = -1;
             private Android.Support.Design.Widget.AppBarLayout _appBarLayout;
             private Android.Support.V7.Widget.Toolbar _toolbar;
 
-            public GroupStylesScroll(Android.Support.Design.Widget.AppBarLayout barLayout, Android.Support.V7.Widget.Toolbar toolbar)
+            public MainItemsScroll(Android.Support.Design.Widget.AppBarLayout barLayout, Android.Support.V7.Widget.Toolbar toolbar)
             {
                 _appBarLayout = barLayout;
                 _toolbar = toolbar;
@@ -255,6 +312,8 @@ namespace TeeChartXamarinAndroid
             }
 
         }
+
+        #endregion
 
     }
 }

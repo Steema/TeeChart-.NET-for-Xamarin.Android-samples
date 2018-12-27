@@ -3,6 +3,7 @@
   <string name="navigation_drawer_open">Open navigation drawer</string>
   <string name="navigation_drawer_close">Close navigation drawer</string>
   <string name="icon_search_text">Search</string>
+  <string name="icon_bottom_menu">More charts</string>
 
   <!-- Title for RecyclerViewer main windows (cardview) -->
   
@@ -17,9 +18,8 @@
   <string name="titleNumericGauge">Numeric Gauge</string>
   <string name="titleLinearGauge">Linear Gauge</string>
   <string name="titleCalendar">Calendar</string>
-  <string name="titleTagCloud">Organizational</string>
+  <string name="titleTagCloud">TagCloud</string>
   <string name="titleStdFunctions">Standard Functions</string>
-  <string name="titleProFunctions">Pro Functions</string>
 
   <!-- Description for RecyclerViewer main windows (cardview) -->
 

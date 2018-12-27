@@ -15,13 +15,13 @@ using TeeChartXamarinAndroid.Model;
 namespace TeeChartXamarinAndroid.ViewModel
 {
 
-    public class SearchItems
+    public class SearchItemsViewModel
     {
 
         private List<SearchItemsModel> _items;
         private Context _context;
 
-        public SearchItems(Context context, List<SearchItemsModel> items)
+        public SearchItemsViewModel(Context context, List<SearchItemsModel> items)
         {
             _context = context;
             _items = items;

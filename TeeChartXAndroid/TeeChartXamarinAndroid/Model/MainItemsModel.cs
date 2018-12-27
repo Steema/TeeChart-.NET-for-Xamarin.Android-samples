@@ -12,15 +12,15 @@ using Android.Widget;
 
 namespace TeeChartXamarinAndroid.Model
 {
-    public class GroupStylesModel
+    public class MainItemsModel
     {
 
         private int _imageId;
         private string _title;
         private string _description;
 		
-		public GroupStylesModel() {}
-		public GroupStylesModel(int imageId, string title, string description) {
+		public MainItemsModel() {}
+		public MainItemsModel(int imageId, string title, string description) {
 			
 			_imageId = imageId;
 			_title = title;

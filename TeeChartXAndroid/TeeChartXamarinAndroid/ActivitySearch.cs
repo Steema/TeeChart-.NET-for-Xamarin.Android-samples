@@ -25,7 +25,7 @@ namespace TeeChartXamarinAndroid
     {
 
         private List<SearchItemsModel> _items;
-        private SearchItems _searchViewModel;
+        private SearchItemsViewModel _searchViewModel;
         private SearchItemsAdapter _searchItemsAdapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -38,7 +38,7 @@ namespace TeeChartXamarinAndroid
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
             RecyclerView recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerViewSearch);
             _items = InitializeItems();
-            _searchViewModel = new SearchItems(Application.Context, _items);
+            _searchViewModel = new SearchItemsViewModel(Application.Context, _items);
             // Set layoutManager and adapter
             recyclerView.SetLayoutManager(linearLayoutManager);
             _searchItemsAdapter = new SearchItemsAdapter(_searchViewModel);
@@ -110,9 +110,9 @@ namespace TeeChartXamarinAndroid
         private class SearchItemsAdapter : RecyclerView.Adapter
         {
 
-            private SearchItems _items;
+            private SearchItemsViewModel _items;
 
-            public SearchItemsAdapter(SearchItems items)
+            public SearchItemsAdapter(SearchItemsViewModel items)
             {
                 _items = items;
             }

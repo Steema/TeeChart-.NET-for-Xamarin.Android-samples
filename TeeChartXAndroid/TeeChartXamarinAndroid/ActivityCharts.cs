@@ -11,12 +11,15 @@ using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
+using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Java.Lang;
+using TeeChartXamarinAndroid.Enums;
 using TeeChartXamarinAndroid.Fragments;
+using TeeChartXamarinAndroid.ViewModel;
 
 namespace TeeChartXamarinAndroid
 {
@@ -24,75 +27,121 @@ namespace TeeChartXamarinAndroid
     public class ActivityCharts : AppCompatActivity
     {
 
-        Android.Support.Design.Widget.TabLayout tabLayout;
+        private TabLayout tabLayout;
+        private BottomSheetDialogFragment bottomNavDrawerFragment;
+        public ChartGroupEnum chartGroup;
+        private ChartTabViewModel chartTabViewModel;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_display_chart);
 
+            // GetExtra Bundle
+            System.Enum.TryParse(Intent.GetStringExtra(MainActivity.CHART_TYPE), out ChartGroupEnum chartGroup);
+            this.chartGroup = chartGroup;
+
+            // Create ChartTabViewModel for data
+            chartTabViewModel = new ChartTabViewModel(chartGroup);
+
+            // Set toolbar
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
+            SupportActionBar.Title = chartTabViewModel.TitleGroup;
 
+            // Set HomeBack Enabled
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
+            // TabLayout, Control ViewPager and adapter
             ViewPager viewPager = FindViewById<ViewPager>(Resource.Id.viewPager);
-            ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(SupportFragmentManager);
+            ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(SupportFragmentManager, chartTabViewModel);
             viewPager.Adapter = viewPagerAdapter;
 
             tabLayout = (Android.Support.Design.Widget.TabLayout)FindViewById(Resource.Id.tabLayout);
             tabLayout.SetupWithViewPager(viewPager);
 
+            // Status Window TopColor
             Window.SetStatusBarColor(Utils.GetResources.GetColor(this, Resource.Color.colorPrimaryOver));
 
-            FloatingActionButton floatingActionButton = FindViewById<FloatingActionButton>(Resource.Id.floatButtonBot);
-            floatingActionButton.Click += FloatingActionButton_Click;
+            // Create BottomNavigationDrawer Fragment
+            bottomNavDrawerFragment = BottomNavigationDrawerFragment.NewInstance();
 
-        }
-
-        private void FloatingActionButton_Click(object sender, EventArgs e)
-        {
-            BottomNavigationDrawerFragment bottomNavDrawerFragment = new BottomNavigationDrawerFragment();
-            bottomNavDrawerFragment.Show(SupportFragmentManager, bottomNavDrawerFragment.Tag);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if (item.ItemId == Android.Resource.Id.Home) { OnBackPressed(); return true; }
+            if (item.ItemId == Android.Resource.Id.Home) { base.OnBackPressed(); return true; }
+            else if (item.ItemId == Resource.Id.action_show_tcharts)
+            {
+                bottomNavDrawerFragment.Show(SupportFragmentManager, "");
+                return true;
+            }
             return base.OnOptionsItemSelected(item);
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            this.MenuInflater.Inflate(Resource.Menu.menu_charts, menu);
+            return true;
+        }
 
+        /*
         public override void OnBackPressed()
         {
             base.OnBackPressed();
         }
+        */
+
+
+        private class ViewPagerAdapter : FragmentPagerAdapter
+        {
+            Android.Support.V4.App.FragmentManager _fragmentManager;
+            ChartTabViewModel _chartTabViewModel;
+            public ViewPagerAdapter(Android.Support.V4.App.FragmentManager fragmentManager, ChartTabViewModel dades) : base(fragmentManager)
+            {
+                _fragmentManager = fragmentManager;
+                _chartTabViewModel = dades;
+            }
+            public override int Count
+            {
+                get { return _chartTabViewModel.Count; }
+            }
+
+            public override Android.Support.V4.App.Fragment GetItem(int position)
+            {
+                Android.Support.V4.App.Fragment chartTabFragment = ChartTabFragment.NewInstance(_chartTabViewModel[position]);
+
+                return chartTabFragment;
+            }
+
+            public override ICharSequence GetPageTitleFormatted(int position)
+            {
+                ICharSequence text = new Java.Lang.String(_chartTabViewModel.Items[position].Title);
+                return text;
+            }
+
+        }
 
     }
 
-    public class ViewPagerAdapter : FragmentPagerAdapter
-    {
-        private string[] _titles;
-        Android.Support.V4.App.FragmentManager _fragmentManager;
-        public ViewPagerAdapter(Android.Support.V4.App.FragmentManager fragmentManager) : base(fragmentManager)
+        /*
+        public class ExtendOnScrollSheet : Java.Lang.Object, NestedScrollView.IOnScrollChangeListener
         {
-            _titles = new string[13] {"Line", "Column Bar", "Area", "Pie", "Fast Line", "Horizontal Area", "Horizontal Bar", "Horizontal Line", "Donut", "Bubble", "Grantt", "Shape", "Point/Scatter" };
-            _fragmentManager = fragmentManager;
+
+            AppCompatActivity _context;
+
+            public ExtendOnScrollSheet(AppCompatActivity context) { _context = context; }
+
+            public void OnScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY)
+            {
+                if (scrollY == v.GetChildAt(0).MeasuredHeight - v.MeasuredHeight)
+                {
+
+                    BottomNavigationDrawerFragment bottomNavDrawerFragment = new BottomNavigationDrawerFragment();
+                    bottomNavDrawerFragment.Show(_context.SupportFragmentManager, bottomNavDrawerFragment.Tag);
+
+                }
+            }
         }
-        public override int Count => _titles.Length;
-
-        public override Android.Support.V4.App.Fragment GetItem(int position)
-        {
-            Android.Support.V4.App.Fragment fragment = Fragments.TabChartFragment.GetInstance(position);
-            return fragment;
-        }
-
-        public override ICharSequence GetPageTitleFormatted(int position)
-        {
-            ICharSequence text = new Java.Lang.String(_titles[position]);
-            return text;
-        }
-
-    }
-
+        */
 }

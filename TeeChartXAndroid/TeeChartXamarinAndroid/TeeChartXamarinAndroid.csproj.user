@@ -3,7 +3,7 @@
   <PropertyGroup>
     <SelectedDevice>HUAWEI FIG-LX1</SelectedDevice>
     <DefaultDevice>android_7_1</DefaultDevice>
-    <AndroidDesignerPreferredTheme>Theme.DeviceDefault</AndroidDesignerPreferredTheme>
+    <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>Nexus 5</AndroidDesignerPreferredDevice>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>

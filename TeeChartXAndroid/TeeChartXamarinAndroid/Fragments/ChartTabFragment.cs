@@ -44,19 +44,20 @@ namespace TeeChartXamarinAndroid.Fragments
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             LinearLayout chartviewLayout = (LinearLayout)LayoutInflater.Inflate(Resource.Layout.chartview_layout, null);
+            chartTabModel.InitializeChartView();
             chartviewLayout.AddView(chartTabModel.TChart);
-
             return chartviewLayout;
         }
 
         public override void OnDestroyView()
         {
-            //base.OnDestroyView();
+            chartTabModel.TChart = null;
+            base.OnDestroyView();
         }
 
         public override void OnDestroy()
         {
-            //base.OnDestroy();
+            base.OnDestroy();
         }
 
         public override void OnViewCreated(View view, Bundle savedInstanceState)

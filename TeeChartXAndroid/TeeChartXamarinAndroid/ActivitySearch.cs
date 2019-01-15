@@ -17,14 +17,20 @@ using Android.Text;
 using Android.Views.InputMethods;
 using Java.Lang;
 using TeeChartXamarinAndroid.Model;
+using TeeChartXamarinAndroid.Utils;
 
 namespace TeeChartXamarinAndroid
 {
-    [Activity(Theme = "@style/AppTheme.NoActionBar")]
+    [Activity(Theme = "@style/AppTheme.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class ActivitySearch : AppCompatActivity
     {
 
-        private List<SearchItemsModel> _items;
+        #region EXTRA BUNDLE
+
+        public const string CHART_NAME = "2000";
+
+        #endregion
+
         private SearchItemsViewModel _searchViewModel;
         private SearchItemsAdapter _searchItemsAdapter;
 
@@ -37,11 +43,10 @@ namespace TeeChartXamarinAndroid
             // Get layoutManager, RecyclerViewer and initializeItems
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
             RecyclerView recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerViewSearch);
-            _items = InitializeItems();
-            _searchViewModel = new SearchItemsViewModel(Application.Context, _items);
+            _searchViewModel = new SearchItemsViewModel(Application.Context);
             // Set layoutManager and adapter
             recyclerView.SetLayoutManager(linearLayoutManager);
-            _searchItemsAdapter = new SearchItemsAdapter(_searchViewModel);
+            _searchItemsAdapter = new SearchItemsAdapter(Application.Context, _searchViewModel);
             recyclerView.SetAdapter(_searchItemsAdapter);
             // BackButton click onBackButtonPressed
             ImageButton backButton = FindViewById<ImageButton>(Resource.Id.backButton);
@@ -52,33 +57,9 @@ namespace TeeChartXamarinAndroid
             // EditText search action
             EditText editText = FindViewById<EditText>(Resource.Id.edt_search_chart);
             editText.SetOnEditorActionListener(new ExtendOnEditorActionListener());
-            editText.AddTextChangedListener(new ExtendOnTextChangedListener(_searchItemsAdapter, _items, cancelSearchButton));
-            
+            editText.AddTextChangedListener(new ExtendOnTextChangedListener(_searchItemsAdapter, _searchViewModel.Items, cancelSearchButton));
         }
 
-
-        /// <summary>
-        /// Crea los items del recycler view
-        /// </summary>
-        /// <returns></returns>
-        private List<SearchItemsModel> InitializeItems()
-        {
-            List<SearchItemsModel> items = new List<SearchItemsModel>()
-            {
-                new SearchItemsModel(Utils.GetResources.GetString(Resource.String.lineChartName), Resource.Drawable.groupstyles_bar),
-                new SearchItemsModel(Utils.GetResources.GetString(Resource.String.columnbarChartName), Resource.Drawable.groupstyles_bar),
-                new SearchItemsModel(Utils.GetResources.GetString(Resource.String.areaChartName), Resource.Drawable.groupstyles_bar),
-                new SearchItemsModel(Utils.GetResources.GetString(Resource.String.pieChartName), Resource.Drawable.groupstyles_bar),
-                new SearchItemsModel(Utils.GetResources.GetString(Resource.String.fstlineChartName), Resource.Drawable.groupstyles_bar),
-                new SearchItemsModel(Utils.GetResources.GetString(Resource.String.hAreaChartName), Resource.Drawable.groupstyles_bar),
-                new SearchItemsModel(Utils.GetResources.GetString(Resource.String.lineChartName), Resource.Drawable.groupstyles_bar),
-                new SearchItemsModel(Utils.GetResources.GetString(Resource.String.lineChartName), Resource.Drawable.groupstyles_bar),
-                new SearchItemsModel(Utils.GetResources.GetString(Resource.String.lineChartName), Resource.Drawable.groupstyles_bar),
-                new SearchItemsModel(Utils.GetResources.GetString(Resource.String.lineChartName), Resource.Drawable.groupstyles_bar),
-
-            };
-            return items;
-        }
         /// <summary>
         /// Volver a la pantalla anterior
         /// </summary>
@@ -111,23 +92,27 @@ namespace TeeChartXamarinAndroid
         {
 
             private SearchItemsViewModel _items;
+            private Context _context;
 
-            public SearchItemsAdapter(SearchItemsViewModel items)
+            public SearchItemsAdapter(Context context, SearchItemsViewModel items)
             {
                 _items = items;
+                _context = context;
             }
 
             public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
             {
                 SearchItemsHolder searchItemsHolder = holder as SearchItemsHolder;
-                searchItemsHolder.Name.Text = _items.Items[position].Name;
-                //searchItemsHolder.Image.SetImageResource(_items.Items[position].Image);
+                SearchItemsModel item = _items.Items[position];
+                searchItemsHolder.Name.Text = item.Name;
+                searchItemsHolder.GroupStyles.Text = item.Group;
             }
 
             public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
             {
                 View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.items_search_layout, parent, false);
                 SearchItemsHolder holder = new SearchItemsHolder(itemView);
+                itemView.SetOnClickListener(new ExtendOnViewItemClickListener(_context));
                 return holder;
             }
 
@@ -138,29 +123,72 @@ namespace TeeChartXamarinAndroid
             }
 
             public override int ItemCount => _items.ItemsCount;
-
         }
 
         private class SearchItemsHolder : RecyclerView.ViewHolder
         {
 
             public TextView Name;
-            //public ImageView Image;
-            private View _itemView;
+            public TextView GroupStyles;
+            public View View;
 
             public SearchItemsHolder(View itemView) : base(itemView)
             {
-
                 Name = itemView.FindViewById<TextView>(Resource.Id.titleItemSearch);
-                //Image = itemView.FindViewById<ImageView>(Resource.Id.imageItemSearch);
+                GroupStyles = itemView.FindViewById<TextView>(Resource.Id.groupTitleItemSearch);
+            }
 
-                //itemView.Click += (sender, e) => listener(base.LayoutPosition);
+        }
 
-                //itemView.Click += OnClick;
+        private class ExtendOnViewItemClickListener : Java.Lang.Object, View.IOnClickListener
+        {
+            private string _titleItem;
+            private string _groupItem;
+            private Context _context;
+            public ExtendOnViewItemClickListener(Context context)
+            {
+                this._context = context;
+            }
+            public void OnClick(View v)
+            {
+                _titleItem = v.FindViewById<TextView>(Resource.Id.titleItemSearch).Text;
+                _groupItem = v.FindViewById<TextView>(Resource.Id.groupTitleItemSearch).Text;
+                Intent intent = new Intent(_context, typeof(ActivitySoloChart));
+                intent.PutExtra(ActivitySearch.CHART_NAME, _titleItem);
+                _context.StartActivity(intent);
+            }
 
-                //_listener = listener;
-                _itemView = (LinearLayout)itemView.FindViewById(Resource.Id.itemSearchLayout);
+            private Enums.ChartGroupEnum GetGroupStyles(string groupItem)
+            {
+                Enums.ChartGroupEnum chartGroupEnum = default(Enums.ChartGroupEnum);
+                if(groupItem == GetResources.GetString(Resource.String.titleStdCharts))
+                    chartGroupEnum = Enums.ChartGroupEnum.StandardCharts;
+                else if(groupItem == GetResources.GetString(Resource.String.titleProCharts))
+                    chartGroupEnum = Enums.ChartGroupEnum.ProCharts;
+                else if (groupItem == GetResources.GetString(Resource.String.titleCircularGauge))
+                    chartGroupEnum = Enums.ChartGroupEnum.CircularGauge;
+                else if (groupItem == GetResources.GetString(Resource.String.titleMaps))
+                    chartGroupEnum = Enums.ChartGroupEnum.Maps;
+                else if (groupItem == GetResources.GetString(Resource.String.titleTreeMap))
+                    chartGroupEnum = Enums.ChartGroupEnum.TreeMap;
+                else if (groupItem == GetResources.GetString(Resource.String.titleKnobGauge))
+                    chartGroupEnum = Enums.ChartGroupEnum.KnobGauge;
+                else if (groupItem == GetResources.GetString(Resource.String.titleClock))
+                    chartGroupEnum = Enums.ChartGroupEnum.Clock;
+                else if (groupItem == GetResources.GetString(Resource.String.titleOrganizational))
+                    chartGroupEnum = Enums.ChartGroupEnum.Organizational;
+                else if (groupItem == GetResources.GetString(Resource.String.titleNumericGauge))
+                    chartGroupEnum = Enums.ChartGroupEnum.NumericGauge;
+                else if (groupItem == GetResources.GetString(Resource.String.titleLinearGauge))
+                    chartGroupEnum = Enums.ChartGroupEnum.LinearGauge;
+                else if (groupItem == GetResources.GetString(Resource.String.titleCalendar))
+                    chartGroupEnum = Enums.ChartGroupEnum.Calendar;
+                else if (groupItem == GetResources.GetString(Resource.String.titleTagCloud))
+                    chartGroupEnum = Enums.ChartGroupEnum.TagCloud;
+                else
+                    chartGroupEnum = Enums.ChartGroupEnum.StandardFunctions;
 
+                return chartGroupEnum;
             }
         }
 

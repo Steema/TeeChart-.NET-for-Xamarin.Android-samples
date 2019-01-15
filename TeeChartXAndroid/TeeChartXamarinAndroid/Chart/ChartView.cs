@@ -17,7 +17,7 @@ namespace TeeChartXamarinAndroid.Chart
     public class ChartView
     {
 
-        private TChart _tChart;
+        public TChart _tChart;
         private SeriesModel _seriesModel;
         private ChartGroupEnum _chartGroup;
 

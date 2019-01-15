@@ -16,18 +16,18 @@ namespace TeeChartXamarinAndroid.Model
     {
 
         private string _name;
-        private int _image;
+        private string _groupStyles;
 
         public SearchItemsModel() { }
 
-        public SearchItemsModel(string name, int image)
+        public SearchItemsModel(string name, string groupStyles)
         {
             _name = name;
-            _image = image;
+            _groupStyles = groupStyles;
         }
 
         public string Name { get => _name; set => _name = value; }
-        public int Image { get => _image; set => _image = value; }
+        public string Group { get => _groupStyles; set => _groupStyles = value; }
 
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Hardware;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -19,11 +20,13 @@ using Android.Widget;
 using Java.Lang;
 using TeeChartXamarinAndroid.Enums;
 using TeeChartXamarinAndroid.Fragments;
+using TeeChartXamarinAndroid.Model;
+using TeeChartXamarinAndroid.Utils;
 using TeeChartXamarinAndroid.ViewModel;
 
 namespace TeeChartXamarinAndroid
 {
-    [Activity(Theme = "@style/AppTheme.NoActionBar")]
+    [Activity(Theme = "@style/AppTheme.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class ActivityCharts : AppCompatActivity
     {
 
@@ -31,6 +34,8 @@ namespace TeeChartXamarinAndroid
         private BottomSheetDialogFragment bottomNavDrawerFragment;
         public ChartGroupEnum chartGroup;
         private ChartTabViewModel chartTabViewModel;
+        ViewPager viewPager;
+        private IMenu menu;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -53,19 +58,18 @@ namespace TeeChartXamarinAndroid
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
             // TabLayout, Control ViewPager and adapter
-            ViewPager viewPager = FindViewById<ViewPager>(Resource.Id.viewPager);
+            LinearLayout parentViewPagerLayout = FindViewById<LinearLayout>(Resource.Id.parentViewPagerLayout);
+            viewPager = new ExtendViewPager(this);
             ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(SupportFragmentManager, chartTabViewModel);
             viewPager.Adapter = viewPagerAdapter;
+            viewPager.AddOnPageChangeListener(new ExtendOnChangedPageViewPager(this));
+            parentViewPagerLayout.AddView(viewPager);
 
             tabLayout = (Android.Support.Design.Widget.TabLayout)FindViewById(Resource.Id.tabLayout);
             tabLayout.SetupWithViewPager(viewPager);
-
+            
             // Status Window TopColor
             Window.SetStatusBarColor(Utils.GetResources.GetColor(this, Resource.Color.colorPrimaryOver));
-
-            // Create BottomNavigationDrawer Fragment
-            bottomNavDrawerFragment = BottomNavigationDrawerFragment.NewInstance();
-
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -73,6 +77,7 @@ namespace TeeChartXamarinAndroid
             if (item.ItemId == Android.Resource.Id.Home) { base.OnBackPressed(); return true; }
             else if (item.ItemId == Resource.Id.action_show_tcharts)
             {
+                bottomNavDrawerFragment = BottomNavigationDrawerFragment.NewInstance(chartTabViewModel.Items[viewPager.CurrentItem]);
                 bottomNavDrawerFragment.Show(SupportFragmentManager, "");
                 return true;
             }
@@ -81,17 +86,71 @@ namespace TeeChartXamarinAndroid
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
+            this.menu = menu;
             this.MenuInflater.Inflate(Resource.Menu.menu_charts, menu);
-            return true;
+            if (chartTabViewModel.Items[0].HaveExtraCharts) menu.SetGroupVisible(0, true);
+            else menu.SetGroupVisible(0, false);
+            return true; 
         }
 
-        /*
-        public override void OnBackPressed()
+        private class ExtendViewPager : ViewPager
         {
-            base.OnBackPressed();
-        }
-        */
+            public ExtendViewPager(Context context) : base(context)
+            {
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    LayoutParams.MatchParent,
+                    LayoutParams.WrapContent,
+                    1);
+                Id = Resource.Id.viewPager;
+                /*CoordinatorLayout.LayoutParams cLayoutParams =
+                            (CoordinatorLayout.LayoutParams)LayoutParameters;
+                cLayoutParams.Behavior = new AppBarLayout.ScrollingViewBehavior();
+                */
+                this.RequestLayout();
+                
+            }
 
+            public override bool OnTouchEvent(MotionEvent e)
+            {
+                return false;
+            }
+
+            public override bool OnInterceptTouchEvent(MotionEvent ev)
+            {
+                return false;
+            }
+
+        }
+
+        private class ExtendOnChangedPageViewPager : Java.Lang.Object, ViewPager.IOnPageChangeListener
+        {
+            ActivityCharts activity;
+            public ExtendOnChangedPageViewPager(ActivityCharts activity)
+            {
+                this.activity = activity;
+            }
+
+            public void OnPageScrolled(int position, float positionOffset, int positionOffsetPixels)
+            {
+                
+            }
+
+            public void OnPageScrollStateChanged(int state)
+            {
+                
+            }
+
+            public void OnPageSelected(int position)
+            {
+                if(activity.chartTabViewModel.Items[position].HaveExtraCharts) activity.menu.SetGroupVisible(0, true);
+                else activity.menu.SetGroupVisible(0, false);
+                if(activity.chartTabViewModel.Items[position].ChartGroup == ChartGroupEnum.ProCharts && activity.chartTabViewModel.Items[position].ChartType == ChartTypeEnum.SpeedTime)
+                {
+                    activity.chartTabViewModel.Items[position].TChart = null;
+                }
+            }
+
+        }
 
         private class ViewPagerAdapter : FragmentPagerAdapter
         {

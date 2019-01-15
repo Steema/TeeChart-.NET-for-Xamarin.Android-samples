@@ -8,36 +8,21 @@
           android:id="@+id/nav_home"
           android:icon="@drawable/ic_menu_home"
           android:title="@string/masterItemHome" />
-      <!--
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-            
-            -->
   </group>
 
   <item android:title="Information">
       <menu>
           <item
               android:id="@+id/nav_web"
-              android:icon="@drawable/ic_menu_share"
+              android:icon="@drawable/ic_menu_external"
               android:title="@string/masterItemWeb" />
           <item
               android:id="@+id/nav_github"
-              android:icon="@drawable/ic_menu_send"
+              android:icon="@drawable/iconGithub"
               android:title="@string/masterItemGithub" />
         <item
               android:id="@+id/nav_documentation"
-              android:icon="@drawable/ic_menu_send"
+              android:icon="@drawable/ic_menu_help"
               android:title="@string/masterItemDocumentation" />
       </menu>
   </item>
@@ -48,12 +33,8 @@
       <group android:checkableBehavior="single">
         <menu>
           <item
-              android:id="@+id/nav_settings"
-              android:icon="@drawable/ic_menu_share"
-              android:title="@string/masterItemSettings" />
-          <item
               android:id="@+id/nav_aboutus"
-              android:icon="@drawable/ic_menu_send"
+              android:icon="@drawable/ic_menu_info"
               android:title="@string/masterItemAboutus" />
         </menu>
       </group>

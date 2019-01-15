@@ -38,18 +38,19 @@
 
     </android.support.design.widget.AppBarLayout>
 
-	<LinearLayout android:layout_width="match_parent"
+	<LinearLayout android:id="@+id/parentViewPagerLayout"
+		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:background="@android:color/white"
 		android:orientation="vertical">
-
+		<!--
 		<android.support.v4.view.ViewPager
 			android:layout_weight="1"
 			android:id="@+id/viewPager"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
+		-->
 	</LinearLayout>
 
 </LinearLayout>

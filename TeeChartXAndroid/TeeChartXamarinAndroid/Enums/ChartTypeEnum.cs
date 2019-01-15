@@ -28,6 +28,89 @@ namespace TeeChartXamarinAndroid.Enums
         Gantt,
         Shape,
         PointScatter,
+        InterpolatingLine,
+        BarStyles,
+        BarGradient,
+        BubbleTransparent,
+        RealTime,
+        StackArea,
+        MultiplePies,
+        SemiPie,
+        SemiDonut,
+        
+        // Pro Charts
+        Arrow,
+        Polar,
+        Radar,
+        Pyramid,
+        Candle,
+        Histogram,
+        Error,
+        ErrorBar,
+        Funnel,
+        Smith,
+        Bezier,
+        HighLow,
+        SpeedTime,
+        Waterfall,
+        Volume,
+        ColorGrid,
+        PolarBar,
+        InvertedPyramid,
+        HorizontalHistogram,
+
+        // Circular Gauge
+        BasicCircGauge,
+        CarFuelCircGauge,
+        CustomHandCircGauge,
+        AccelerationCircGauge,
+
+        // Maps
+        MapGIS,
+        WorldMap,
+
+        // TreeMap
+        TreeMap,
+
+        // KnobGauge
+        BasicKnobGauge,
+        TemperatureKnobGauge,
+        CompassKnobGauge,
+
+        // Clock
+        BasicClock,
+        CustomClock,
+
+        // Organizational
+        Organizational,
+
+        // Numeric Gauge
+        NumericGauge,
+
+        // Linear Gauge
+        BasicLinGauge,
+        ScalesLinGauge,
+        SublinesLinGauge,
+        MobileBatteryLinGauge,
+
+        // Calendar
+        BasicCalendar,
+        SpecialDates,
+
+        // TagCloud
+        TagCloud,
+
+        // Standard Functions
+        AddStdFunc,
+        SubstractStdFunc,
+        MultiplyStdFunc,
+        DivideStdFunc,
+        CountStdFunc,
+        AverageStdFunc,
+        HighStdFunc,
+        LowStdFunc,
+        MedianStdFunc,
+        PercentChangeStdFunc,
 
     }
 }

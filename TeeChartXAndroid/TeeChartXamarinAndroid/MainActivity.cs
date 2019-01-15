@@ -19,9 +19,16 @@ using TeeChartXamarinAndroid.ViewModel;
 
 namespace TeeChartXamarinAndroid
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
+
+        #region APP INFO
+
+        public static int deviceWidth;
+        public static int deviceHeight;
+
+        #endregion
 
         #region EXTRA BUNDLE
 
@@ -38,6 +45,9 @@ namespace TeeChartXamarinAndroid
         {
             base.OnCreate(savedInstanceState);
 
+            var metrics = Resources.DisplayMetrics;
+            deviceWidth = metrics.WidthPixels;
+            deviceHeight = metrics.HeightPixels;
             // RecyclerViewer items
             groupStyles = new MainItemsViewModel();
 
@@ -51,7 +61,7 @@ namespace TeeChartXamarinAndroid
             SetSupportActionBar(toolbar);
             AppBarLayout appBarLayout = FindViewById<AppBarLayout>(Resource.Id.topbarLayout);
 
-            vRecyclerViewer.AddOnScrollListener(new MainItemsScroll(appBarLayout, toolbar));
+            vRecyclerViewer.AddOnScrollListener(new MainItemsScroll(appBarLayout));
 
             // Set layoutManager to RecyclerViewer  
             linearLayoutManager = new LinearLayoutManager(this);
@@ -69,7 +79,8 @@ namespace TeeChartXamarinAndroid
             toggle.SyncState();
 
             NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
-            navigationView.SetNavigationItemSelectedListener(this);            
+            navigationView.SetNavigationItemSelectedListener(this);
+            navigationView.Menu.GetItem(0).SetChecked(true);
 
             Window.SetStatusBarColor(Utils.GetResources.GetColor(this, Resource.Color.colorPrimaryOver));
 
@@ -96,7 +107,9 @@ namespace TeeChartXamarinAndroid
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
+            if (itemSelected) return false;
             int id = item.ItemId;
+            itemSelected = true;
             if (id == Resource.Id.search_toolbar_item)
             {
                 Android.Content.Intent intent = new Android.Content.Intent(this, typeof(ActivitySearch));
@@ -109,35 +122,36 @@ namespace TeeChartXamarinAndroid
 
         public bool OnNavigationItemSelected(IMenuItem item)
         {
+            if (itemSelected) return false;
             int id = item.ItemId;
+            itemSelected = true;
 
             if (id == Resource.Id.nav_home)
             {
-                // Handle the camera action
+                return false;
             }
             else if(id == Resource.Id.nav_web)
             {
-
+                Android.Net.Uri uri = Android.Net.Uri.Parse("https://www.steema.com");
+                Intent intent = new Intent(Intent.ActionView, uri);
+                StartActivity(intent);
             }
             else if (id == Resource.Id.nav_github)
             {
-
+                Android.Net.Uri uri = Android.Net.Uri.Parse("https://github.com/Steema");
+                Intent intent = new Intent(Intent.ActionView, uri);
+                StartActivity(intent);
             }
             else if (id == Resource.Id.nav_documentation)
             {
-
-            }
-            else if (id == Resource.Id.nav_settings)
-            {
-
-            }
-            else if (id == Resource.Id.nav_settings)
-            {
-
+                Android.Net.Uri uri = Android.Net.Uri.Parse("http://www.teechart.net/docs/TeeChartNETAndroidTutorials.htm");
+                Intent intent = new Intent(Intent.ActionView, uri);
+                StartActivity(intent);
             }
             else if (id == Resource.Id.nav_aboutus)
             {
-
+                Intent intent = new Intent(this, typeof(ActivityAboutUs));
+                StartActivity(intent);
             }
 
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
@@ -145,13 +159,17 @@ namespace TeeChartXamarinAndroid
             return true;
         }
 
+        private bool itemSelected = false;
         void OnItemClick(object sender, int position)
         {
-            int nElement = position + 1;
-            Intent intent = new Intent(this, typeof(ActivityCharts));
-            intent.PutExtra(CHART_TYPE, GetChartGroupEnum(nElement).ToString());
-            StartActivity(intent);
-            
+            if(!itemSelected)
+            {
+                itemSelected = true;
+                int nElement = position + 1;
+                Intent intent = new Intent(this, typeof(ActivityCharts));
+                intent.PutExtra(CHART_TYPE, GetChartGroupEnum(nElement).ToString());
+                StartActivity(intent);
+            }            
         }
 
         private Enums.ChartGroupEnum GetChartGroupEnum(int position)
@@ -200,6 +218,12 @@ namespace TeeChartXamarinAndroid
                     break;
             }
             return chartGroupEnum;
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            itemSelected = false;
         }
 
         #region RECVIEW EXTENSIONS
@@ -289,12 +313,10 @@ namespace TeeChartXamarinAndroid
 
             private static int SCROLL_DIRECTION_UP = -1;
             private Android.Support.Design.Widget.AppBarLayout _appBarLayout;
-            private Android.Support.V7.Widget.Toolbar _toolbar;
 
-            public MainItemsScroll(Android.Support.Design.Widget.AppBarLayout barLayout, Android.Support.V7.Widget.Toolbar toolbar)
+            public MainItemsScroll(Android.Support.Design.Widget.AppBarLayout barLayout)
             {
                 _appBarLayout = barLayout;
-                _toolbar = toolbar;
             }
 
             public override void OnScrolled(RecyclerView recyclerView, int dx, int dy)

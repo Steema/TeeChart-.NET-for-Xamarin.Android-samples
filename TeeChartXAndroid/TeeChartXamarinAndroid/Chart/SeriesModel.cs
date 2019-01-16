@@ -60,7 +60,8 @@ namespace TeeChartXamarinAndroid.TeeChart
 
         private void InitializeSeries()
         {
-            switch(_chartType)
+            DisablePanningAndZoom();
+            switch (_chartType)
             {
                 case ChartTypeEnum.Line:
                     InitLineChart();
@@ -279,7 +280,27 @@ namespace TeeChartXamarinAndroid.TeeChart
                     InitPercentChangeStdFuncChart();
                     break;
             }
-        }     
+            DisablePanningAndZoom();
+        }
+
+        private void DisablePanningAndZoom()
+        {
+            switch (_chartType)
+            {
+                case ChartTypeEnum.InterpolatingLine:
+                    _tChart.Zoom.Direction = ZoomDirections.Both;
+                    _tChart.Panning.Allow = ScrollModes.Both;
+                    _tChart.Panning.Active = true;
+                    _tChart.Zoom.Active = true;
+                    break;
+                default:
+                    _tChart.Zoom.Direction = ZoomDirections.None;
+                    _tChart.Panning.Allow = ScrollModes.None;
+                    _tChart.Panning.Active = false;
+                    _tChart.Zoom.Active = false;
+                    break;
+            }
+        }
 
         #region SERIES
 

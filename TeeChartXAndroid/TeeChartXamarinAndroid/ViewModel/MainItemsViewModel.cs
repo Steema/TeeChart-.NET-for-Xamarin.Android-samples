@@ -32,7 +32,7 @@ namespace TeeChartXamarinAndroid.ViewModel
                 new MainItemsModel(Resource.Drawable.groupstyles_tower, Application.Context.GetString(Resource.String.titleProCharts), GetResources.GetString(Resource.String.descriptProCharts)),
                 new MainItemsModel(Resource.Drawable.groupstyles_circulargauge, Application.Context.GetString(Resource.String.titleCircularGauge), GetResources.GetString(Resource.String.descriptCircularGauge)),
                 new MainItemsModel(Resource.Drawable.groupstyles_map, Application.Context.GetString(Resource.String.titleMaps), GetResources.GetString(Resource.String.descriptMaps)),
-                new MainItemsModel(Resource.Drawable.groupstyles_renko, Application.Context.GetString(Resource.String.titleTreeMap), GetResources.GetString(Resource.String.descriptTreeMap)),
+                //new MainItemsModel(Resource.Drawable.groupstyles_renko, Application.Context.GetString(Resource.String.titleTreeMap), GetResources.GetString(Resource.String.descriptTreeMap)),
                 new MainItemsModel(Resource.Drawable.groupstyles_knobgauge, Application.Context.GetString(Resource.String.titleKnobGauge), GetResources.GetString(Resource.String.descriptKnobGauge)),
                 new MainItemsModel(Resource.Drawable.groupstyles_clock, Application.Context.GetString(Resource.String.titleClock), GetResources.GetString(Resource.String.descriptClock)),
                 new MainItemsModel(Resource.Drawable.groupstyles_org, Application.Context.GetString(Resource.String.titleOrganizational), GetResources.GetString(Resource.String.descriptOrganizational)),

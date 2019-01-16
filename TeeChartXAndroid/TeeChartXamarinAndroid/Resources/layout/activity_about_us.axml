@@ -211,40 +211,8 @@
 				app:cardUseCompatPadding="true"
 				android:layout_marginLeft="6dp"
 				android:layout_marginRight="6dp"
-				android:layout_marginTop="5dp">
-
-				<LinearLayout android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_margin="10dp"
-					android:orientation="vertical">
-
-					<TextView android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:textSize="20dp"
-						android:text="Our offices"
-						android:textColor="@color/colorPrimaryDark"/>
-
-					<TextView android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:textSize="14dp"
-						android:layout_marginTop="5dp"
-						android:justificationMode="inter_word"
-						android:textAlignment="textStart"
-						android:text="@string/steemaDescription"/>
-
-				</LinearLayout>
-
-			</android.support.v7.widget.CardView>
-
-			<android.support.v7.widget.CardView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				app:cardElevation="2dp"
-				app:cardCornerRadius="5dp"
-				app:cardUseCompatPadding="true"
-				android:layout_marginLeft="6dp"
-				android:layout_marginRight="6dp"
-				android:layout_marginTop="5dp">
+				android:layout_marginTop="5dp"
+				android:layout_marginBottom="10dp">
 
 				<LinearLayout android:layout_width="match_parent"
 					android:layout_height="wrap_content"
@@ -271,19 +239,31 @@
 				</LinearLayout>
 
 			</android.support.v7.widget.CardView>
-
-			<Button android:id="@+id/btnContactUs"
+			<!--
+			<android.support.v7.widget.CardView
 				android:layout_width="match_parent"
-				android:layout_height="50dp"
-				android:text="Contact Us"
-				android:foreground="?android:attr/selectableItemBackground"
-				android:clickable="true"
-				style="@android:style/Widget.Material.Button.Borderless"
-				android:background="@drawable/button_shadow_selector"
-				android:stateListAnimator="@null"
-				android:elevation="0dp"
-				android:layout_margin="7dp"
-				android:layout_marginBottom="20dp"/>
+				android:layout_height="wrap_content"
+				app:cardElevation="2dp"
+				app:cardCornerRadius="5dp"
+				app:cardUseCompatPadding="true"
+				android:layout_marginBottom="10dp"
+				android:layout_marginLeft="6dp"
+				android:layout_marginRight="6dp"
+				android:layout_marginTop="5dp">
+
+				<Button android:id="@+id/btnContactUs"
+					android:layout_width="match_parent"
+					android:layout_height="50dp"
+					android:text="Contact Us"
+					android:foreground="?android:attr/selectableItemBackground"
+					android:clickable="true"
+					style="@android:style/Widget.Material.Button.Borderless"
+					android:background="@android:color/white"
+					android:stateListAnimator="@null"
+					android:elevation="0dp"/>
+
+			</android.support.v7.widget.CardView>
+			-->
 
 		</LinearLayout>
 

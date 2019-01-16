@@ -19,7 +19,7 @@ using TeeChartXamarinAndroid.ViewModel;
 
 namespace TeeChartXamarinAndroid
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/app_name", Icon = "@drawable/iconBaseSteema", RoundIcon = "@drawable/icon_rounded2_steema_weather", Theme = "@style/AppTheme.NoActionBar", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
 
@@ -189,31 +189,33 @@ namespace TeeChartXamarinAndroid
                 case 4:
                     chartGroupEnum = Enums.ChartGroupEnum.Maps;
                     break;
+                    /*
                 case 5:
                     chartGroupEnum = Enums.ChartGroupEnum.TreeMap;
                     break;
-                case 6:
+                    */
+                case 5:
                     chartGroupEnum = Enums.ChartGroupEnum.KnobGauge;
                     break;
-                case 7:
+                case 6:
                     chartGroupEnum = Enums.ChartGroupEnum.Clock;
                     break;
-                case 8:
+                case 7:
                     chartGroupEnum = Enums.ChartGroupEnum.Organizational;
                     break;
-                case 9:
+                case 8:
                     chartGroupEnum = Enums.ChartGroupEnum.NumericGauge;
                     break;
-                case 10:
+                case 9:
                     chartGroupEnum = Enums.ChartGroupEnum.LinearGauge;
                     break;
-                case 11:
+                case 10:
                     chartGroupEnum = Enums.ChartGroupEnum.Calendar;
                     break;
-                case 12:
+                case 11:
                     chartGroupEnum = Enums.ChartGroupEnum.TagCloud;
                     break;
-                case 13:
+                case 12:
                     chartGroupEnum = Enums.ChartGroupEnum.StandardFunctions;
                     break;
             }

@@ -9,7 +9,7 @@ using Android.App;
 [assembly: AssemblyTitle("TeeChartXamarinAndroid")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Steema S.L.")]
 [assembly: AssemblyProduct("TeeChartXamarinAndroid")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]

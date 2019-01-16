@@ -38,26 +38,39 @@ namespace TeeChartXamarinAndroid
             Button btnTwitter = FindViewById<Button>(Resource.Id.btnTwitter);
             Button btnGooglePlus = FindViewById<Button>(Resource.Id.btnGooglePlus);
             Button btnLinkedin = FindViewById<Button>(Resource.Id.btnLinkedin);
-            Button btnContactUs = FindViewById<Button>(Resource.Id.btnContactUs);
+            //Button btnContactUs = FindViewById<Button>(Resource.Id.btnContactUs);
 
             btnFacebook.Click += BtnSocial_Click;
             btnTwitter.Click += BtnSocial_Click;
             btnGooglePlus.Click += BtnSocial_Click;
             btnLinkedin.Click += BtnSocial_Click;
-            btnContactUs.Click += BtnContactUs_Click;
+            //btnContactUs.Click += BtnContactUs_Click;
 
             // Status Window TopColor
             Window.SetStatusBarColor(Utils.GetResources.GetColor(this, Resource.Color.colorPrimaryOver));
         }
 
+        /*
         private void BtnContactUs_Click(object sender, EventArgs e)
         {
-            Intent intent = new Intent(Intent.ActionSendto);
-            intent.SetData(Android.Net.Uri.Parse("mailto:"));
-            intent.PutExtra(Intent.ExtraEmail, "info@steema.com");
-            intent.SetType("*/*");
-            if (intent.ResolveActivity(PackageManager) != null) StartActivity(intent);
+            Intent emailIntent = new Intent(Intent.ActionSend);
+
+            emailIntent.SetData(Android.Net.Uri.Parse("mailto:"));
+            emailIntent.SetType("");
+            emailIntent.PutExtra(Intent.ExtraEmail, "info@steema.com");
+
+            try
+            {
+                StartActivity(Intent.CreateChooser(emailIntent, "Send mail..."));
+                Finish();
+                Android.Util.Log.Info("Finished sending email...", "");
+            }
+            catch (Android.Content.ActivityNotFoundException ex)
+            {
+                Toast.MakeText(Application.Context, "Error, we can't open it.", ToastLength.Short).Show();
+            }
         }
+        */
 
         private void BtnSocial_Click(object sender, EventArgs e)
         {

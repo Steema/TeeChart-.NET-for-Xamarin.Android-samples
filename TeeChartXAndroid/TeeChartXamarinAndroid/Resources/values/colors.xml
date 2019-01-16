@@ -6,4 +6,5 @@
     <color name="colorAccent">#3498db</color>
     <color name="red">#ff0000</color>
     <color name="colorHintEditText">#aaaaaa</color>
+    <color name="splash_background">#c7def0</color>
 </resources>

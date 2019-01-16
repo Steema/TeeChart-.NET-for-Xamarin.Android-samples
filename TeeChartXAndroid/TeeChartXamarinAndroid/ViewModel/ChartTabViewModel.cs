@@ -79,17 +79,18 @@ namespace TeeChartXamarinAndroid.ViewModel
                     _chartTabModels = new List<ChartTabModel>()
                     {
                         new ChartTabModel(chartGroup, ChartTypeEnum.MapGIS),
-                        new ChartTabModel(chartGroup, ChartTypeEnum.WorldMap),
+                        //new ChartTabModel(chartGroup, ChartTypeEnum.WorldMap),
                     };
                     _titleGroup = "Maps";
                     break;
-                case ChartGroupEnum.TreeMap:
+                /*case ChartGroupEnum.TreeMap:
                     _chartTabModels = new List<ChartTabModel>()
                     {
                         new ChartTabModel(chartGroup, ChartTypeEnum.TreeMap),
                     };
                     _titleGroup = "TreeMap";
                     break;
+                */
                 case ChartGroupEnum.KnobGauge:
                     _chartTabModels = new List<ChartTabModel>()
                     {

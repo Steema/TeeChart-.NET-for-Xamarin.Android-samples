@@ -14,7 +14,7 @@ This sample combines TeeChart for .NET CSharp combined with Xamarin.Android Comp
 
 #### Android
 
-![screenshot](https://github.com/Steema/TeeChart-.NET-for-Xamarin.Android-samples/tree/master/TeeChartXAndroid/TeeChartXamarinAndroid/Screenshots/DROID_VIDEO_APP.gif)
+![screenshot](https://github.com/Steema/TeeChart-.NET-for-Xamarin.Android-samples/tree/master/TeeChartFeatures/Resources/DROID_VIDEO_APP.gif)
 
 ## Sample Requeriments
 

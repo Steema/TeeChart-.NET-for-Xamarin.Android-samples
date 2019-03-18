@@ -1,0 +1,77 @@
+<resources>
+  <string name="app_name">TeeChart</string>
+  <string name="navigation_drawer_open">Open navigation drawer</string>
+  <string name="navigation_drawer_close">Close navigation drawer</string>
+  <string name="icon_search_text">Search</string>
+
+  <!-- Title for RecyclerViewer main windows (cardview) -->
+  
+  <string name="titleStdCharts">Standard Charts</string>
+  <string name="titleProCharts">Pro Charts</string>
+  <string name="titleCircularGauge">Circular Gauge</string>
+  <string name="titleMaps">Maps</string>
+  <string name="titleTreeMap">TreeMap</string>
+  <string name="titleKnobGauge">Knob Gauge</string>
+  <string name="titleClock">Clock</string>
+  <string name="titleOrganizational">Organizational</string>
+  <string name="titleNumericGauge">Numeric Gauge</string>
+  <string name="titleLinearGauge">Linear Gauge</string>
+  <string name="titleCalendar">Calendar</string>
+  <string name="titleTagCloud">Organizational</string>
+  <string name="titleStdFunctions">Standard Functions</string>
+  <string name="titleProFunctions">Pro Functions</string>
+
+  <!-- Description for RecyclerViewer main windows (cardview) -->
+
+  <string name="descriptStdCharts">Show different simple chart types how lineals, bubbles or areas.</string>
+  <string name="descriptProCharts">Some charts like the Pyramid or Kagi. These have more customization and are more complex.</string>
+  <string name="descriptCircularGauge">CircularGauge provides a fully configurable and quick drawing circular gauge style.</string>
+  <string name="descriptMaps">Show a Map series which is a collection of polygon shapes and differents world maps.</string>
+  <string name="descriptTreeMap">Treemaps display hierarchical (tree-structured) data as a set of nested rectangles.</string>
+  <string name="descriptKnobGauge">Knob Guage uses a needle pointer but it also has a cap of larger radius that imitates a gear.</string>
+  <string name="descriptClock">The Clock series displays live watches. Multiple configuration parameters are available.</string>
+  <string name="descriptOrganizational">Organizational Charts display elements in hierarchical structures, such as Company and  Employers.</string>
+  <string name="descriptNumericGauge">Show a numeric data using a gauge.</string>
+  <string name="descriptLinearGauge">Dispay numeric data using a linear element.</string>
+  <string name="descriptCalendar">Month-View calendar for selecting dates in order to display different activities.</string>
+  <string name="descriptTagCloud">Display different texts in a cloud with a font whose colour and size is relative to that frequency.</string>
+  <string name="descriptStdFunctions">Some functions to charts which are considered basics.</string>
+  <string name="descriptProFunctions">More complicated functions for statistical sectors for example financial field.</string>
+
+  <!-- MasterView Items Text -->
+
+  <string name="masterItemHome">Home</string>
+  <string name="masterItemWeb">Web</string>
+  <string name="masterItemGithub">GitHub</string>
+  <string name="masterItemDocumentation">Documentation</string>
+  <string name="masterItemSettings">Settings</string>
+  <string name="masterItemAboutus">About us</string>
+
+  <!-- Charts Name -->
+
+  <string name="lineChartName">Line</string>
+  <string name="columnbarChartName">Column Bar</string>
+  <string name="areaChartName">Area</string>
+  <string name="pieChartName">Pie</string>
+  <string name="fstlineChartName">Fast Line</string>
+  <string name="hAreaChartName">Horizontal Area</string>
+  <string name="hBarChartName">Horizontal Bar</string>
+  <string name="hLineChartName">Horizontal Line</string>
+  <string name="donutChartName">Donut</string>
+  <string name="bubbleChartName">Bubble</string>
+  <string name="ganttChartName">Gantt</string>
+  <string name="shapeChartName">Shape</string>
+  <string name="pointscatterChartName">Point/Scatter</string>
+  <string name="lineChartName">Line</string>
+  <string name="lineChartName">Line</string>
+  <string name="lineChartName">Line</string>
+  <string name="lineChartName">Line</string>
+  <string name="lineChartName">Line</string>
+  <string name="lineChartName">Line</string>
+  <string name="lineChartName">Line</string>
+  <string name="lineChartName">Line</string>
+  <string name="lineChartName">Line</string>
+
+  <string name="hintSearchView">Search a chart</string>
+  
+</resources>

@@ -5,6 +5,8 @@
   <string name="icon_search_text">Search</string>
   <string name="icon_bottom_menu">More charts</string>
 
+  <string name="app_version">1.1</string>
+
   <!-- Title for RecyclerViewer main windows (cardview) -->
   
   <string name="titleStdCharts">Standard Charts</string>

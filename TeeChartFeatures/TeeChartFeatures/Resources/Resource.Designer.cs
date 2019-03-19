@@ -4436,56 +4436,59 @@ namespace TeeChartFeatures
 			// aapt resource value: 0x7f0c001a
 			public const int abc_toolbar_collapse_description = 2131492890;
 			
-			// aapt resource value: 0x7f0c00a5
-			public const int aboutUsMainText = 2131493029;
+			// aapt resource value: 0x7f0c00a6
+			public const int aboutUsMainText = 2131493030;
 			
-			// aapt resource value: 0x7f0c0088
-			public const int accelerationChartName = 2131493000;
+			// aapt resource value: 0x7f0c0089
+			public const int accelerationChartName = 2131493001;
 			
-			// aapt resource value: 0x7f0c009a
-			public const int addFuncChartName = 2131493018;
+			// aapt resource value: 0x7f0c009b
+			public const int addFuncChartName = 2131493019;
 			
 			// aapt resource value: 0x7f0c0036
 			public const int app_name = 2131492918;
 			
+			// aapt resource value: 0x7f0c003b
+			public const int app_version = 2131492923;
+			
 			// aapt resource value: 0x7f0c0028
 			public const int appbar_scrolling_view_behavior = 2131492904;
 			
-			// aapt resource value: 0x7f0c005e
-			public const int areaChartName = 2131492958;
+			// aapt resource value: 0x7f0c005f
+			public const int areaChartName = 2131492959;
 			
-			// aapt resource value: 0x7f0c0072
-			public const int arrowChartName = 2131492978;
+			// aapt resource value: 0x7f0c0073
+			public const int arrowChartName = 2131492979;
 			
-			// aapt resource value: 0x7f0c009f
-			public const int averageFuncChartName = 2131493023;
+			// aapt resource value: 0x7f0c00a0
+			public const int averageFuncChartName = 2131493024;
+			
+			// aapt resource value: 0x7f0c006c
+			public const int barGradientChartName = 2131492972;
 			
 			// aapt resource value: 0x7f0c006b
-			public const int barGradientChartName = 2131492971;
+			public const int barStylesChartName = 2131492971;
 			
-			// aapt resource value: 0x7f0c006a
-			public const int barStylesChartName = 2131492970;
+			// aapt resource value: 0x7f0c0090
+			public const int basicClockChartName = 2131493008;
 			
-			// aapt resource value: 0x7f0c008f
-			public const int basicClockChartName = 2131493007;
-			
-			// aapt resource value: 0x7f0c007f
-			public const int bezierChartName = 2131492991;
+			// aapt resource value: 0x7f0c0080
+			public const int bezierChartName = 2131492992;
 			
 			// aapt resource value: 0x7f0c0029
 			public const int bottom_sheet_behavior = 2131492905;
 			
-			// aapt resource value: 0x7f0c0065
-			public const int bubbleChartName = 2131492965;
+			// aapt resource value: 0x7f0c0066
+			public const int bubbleChartName = 2131492966;
 			
-			// aapt resource value: 0x7f0c0097
-			public const int calendarChartName = 2131493015;
+			// aapt resource value: 0x7f0c0098
+			public const int calendarChartName = 2131493016;
 			
-			// aapt resource value: 0x7f0c0078
-			public const int candleChartName = 2131492984;
+			// aapt resource value: 0x7f0c0079
+			public const int candleChartName = 2131492985;
 			
-			// aapt resource value: 0x7f0c0086
-			public const int carFuelChartName = 2131492998;
+			// aapt resource value: 0x7f0c0087
+			public const int carFuelChartName = 2131492999;
 			
 			// aapt resource value: 0x7f0c002a
 			public const int character_counter_content_description = 2131492906;
@@ -4493,80 +4496,80 @@ namespace TeeChartFeatures
 			// aapt resource value: 0x7f0c002b
 			public const int character_counter_pattern = 2131492907;
 			
+			// aapt resource value: 0x7f0c0086
+			public const int circularGaugeChartName = 2131492998;
+			
 			// aapt resource value: 0x7f0c0085
-			public const int circularGaugeChartName = 2131492997;
+			public const int colorGridChartName = 2131492997;
 			
-			// aapt resource value: 0x7f0c0084
-			public const int colorGridChartName = 2131492996;
+			// aapt resource value: 0x7f0c005e
+			public const int columnbarChartName = 2131492958;
 			
-			// aapt resource value: 0x7f0c005d
-			public const int columnbarChartName = 2131492957;
+			// aapt resource value: 0x7f0c008f
+			public const int compassChartName = 2131493007;
 			
-			// aapt resource value: 0x7f0c008e
-			public const int compassChartName = 2131493006;
+			// aapt resource value: 0x7f0c009f
+			public const int countFuncChartName = 2131493023;
 			
-			// aapt resource value: 0x7f0c009e
-			public const int countFuncChartName = 2131493022;
+			// aapt resource value: 0x7f0c0091
+			public const int customClockChartName = 2131493009;
 			
-			// aapt resource value: 0x7f0c0090
-			public const int customClockChartName = 2131493008;
-			
-			// aapt resource value: 0x7f0c0087
-			public const int customHandChartName = 2131492999;
-			
-			// aapt resource value: 0x7f0c0052
-			public const int descriptCalendar = 2131492946;
-			
-			// aapt resource value: 0x7f0c004a
-			public const int descriptCircularGauge = 2131492938;
-			
-			// aapt resource value: 0x7f0c004e
-			public const int descriptClock = 2131492942;
-			
-			// aapt resource value: 0x7f0c004d
-			public const int descriptKnobGauge = 2131492941;
-			
-			// aapt resource value: 0x7f0c0051
-			public const int descriptLinearGauge = 2131492945;
-			
-			// aapt resource value: 0x7f0c004b
-			public const int descriptMaps = 2131492939;
-			
-			// aapt resource value: 0x7f0c0050
-			public const int descriptNumericGauge = 2131492944;
-			
-			// aapt resource value: 0x7f0c004f
-			public const int descriptOrganizational = 2131492943;
-			
-			// aapt resource value: 0x7f0c0049
-			public const int descriptProCharts = 2131492937;
-			
-			// aapt resource value: 0x7f0c0055
-			public const int descriptProFunctions = 2131492949;
-			
-			// aapt resource value: 0x7f0c0048
-			public const int descriptStdCharts = 2131492936;
-			
-			// aapt resource value: 0x7f0c0054
-			public const int descriptStdFunctions = 2131492948;
+			// aapt resource value: 0x7f0c0088
+			public const int customHandChartName = 2131493000;
 			
 			// aapt resource value: 0x7f0c0053
-			public const int descriptTagCloud = 2131492947;
+			public const int descriptCalendar = 2131492947;
+			
+			// aapt resource value: 0x7f0c004b
+			public const int descriptCircularGauge = 2131492939;
+			
+			// aapt resource value: 0x7f0c004f
+			public const int descriptClock = 2131492943;
+			
+			// aapt resource value: 0x7f0c004e
+			public const int descriptKnobGauge = 2131492942;
+			
+			// aapt resource value: 0x7f0c0052
+			public const int descriptLinearGauge = 2131492946;
 			
 			// aapt resource value: 0x7f0c004c
-			public const int descriptTreeMap = 2131492940;
+			public const int descriptMaps = 2131492940;
 			
-			// aapt resource value: 0x7f0c009d
-			public const int divideFuncChartName = 2131493021;
+			// aapt resource value: 0x7f0c0051
+			public const int descriptNumericGauge = 2131492945;
 			
-			// aapt resource value: 0x7f0c0064
-			public const int donutChartName = 2131492964;
+			// aapt resource value: 0x7f0c0050
+			public const int descriptOrganizational = 2131492944;
+			
+			// aapt resource value: 0x7f0c004a
+			public const int descriptProCharts = 2131492938;
+			
+			// aapt resource value: 0x7f0c0056
+			public const int descriptProFunctions = 2131492950;
+			
+			// aapt resource value: 0x7f0c0049
+			public const int descriptStdCharts = 2131492937;
+			
+			// aapt resource value: 0x7f0c0055
+			public const int descriptStdFunctions = 2131492949;
+			
+			// aapt resource value: 0x7f0c0054
+			public const int descriptTagCloud = 2131492948;
+			
+			// aapt resource value: 0x7f0c004d
+			public const int descriptTreeMap = 2131492941;
+			
+			// aapt resource value: 0x7f0c009e
+			public const int divideFuncChartName = 2131493022;
+			
+			// aapt resource value: 0x7f0c0065
+			public const int donutChartName = 2131492965;
+			
+			// aapt resource value: 0x7f0c007d
+			public const int errorBarChartName = 2131492989;
 			
 			// aapt resource value: 0x7f0c007c
-			public const int errorBarChartName = 2131492988;
-			
-			// aapt resource value: 0x7f0c007b
-			public const int errorChartName = 2131492987;
+			public const int errorChartName = 2131492988;
 			
 			// aapt resource value: 0x7f0c002c
 			public const int fab_transformation_scrim_behavior = 2131492908;
@@ -4574,41 +4577,41 @@ namespace TeeChartFeatures
 			// aapt resource value: 0x7f0c002d
 			public const int fab_transformation_sheet_behavior = 2131492909;
 			
-			// aapt resource value: 0x7f0c0060
-			public const int fstlineChartName = 2131492960;
-			
-			// aapt resource value: 0x7f0c007d
-			public const int funnelChartName = 2131492989;
-			
-			// aapt resource value: 0x7f0c0066
-			public const int ganttChartName = 2131492966;
-			
 			// aapt resource value: 0x7f0c0061
-			public const int hAreaChartName = 2131492961;
+			public const int fstlineChartName = 2131492961;
+			
+			// aapt resource value: 0x7f0c007e
+			public const int funnelChartName = 2131492990;
+			
+			// aapt resource value: 0x7f0c0067
+			public const int ganttChartName = 2131492967;
 			
 			// aapt resource value: 0x7f0c0062
-			public const int hBarChartName = 2131492962;
+			public const int hAreaChartName = 2131492962;
 			
 			// aapt resource value: 0x7f0c0063
-			public const int hLineChartName = 2131492963;
+			public const int hBarChartName = 2131492963;
+			
+			// aapt resource value: 0x7f0c0064
+			public const int hLineChartName = 2131492964;
 			
 			// aapt resource value: 0x7f0c002e
 			public const int hide_bottom_view_on_scroll_behavior = 2131492910;
 			
-			// aapt resource value: 0x7f0c00a0
-			public const int highFuncChartName = 2131493024;
+			// aapt resource value: 0x7f0c00a1
+			public const int highFuncChartName = 2131493025;
 			
-			// aapt resource value: 0x7f0c0080
-			public const int highLowChartName = 2131492992;
+			// aapt resource value: 0x7f0c0081
+			public const int highLowChartName = 2131492993;
 			
-			// aapt resource value: 0x7f0c00a4
-			public const int hintSearchView = 2131493028;
-			
-			// aapt resource value: 0x7f0c0079
-			public const int histogramChartName = 2131492985;
+			// aapt resource value: 0x7f0c00a5
+			public const int hintSearchView = 2131493029;
 			
 			// aapt resource value: 0x7f0c007a
-			public const int horizHistogramChartName = 2131492986;
+			public const int histogramChartName = 2131492986;
+			
+			// aapt resource value: 0x7f0c007b
+			public const int horizHistogramChartName = 2131492987;
 			
 			// aapt resource value: 0x7f0c003a
 			public const int icon_bottom_menu = 2131492922;
@@ -4616,59 +4619,59 @@ namespace TeeChartFeatures
 			// aapt resource value: 0x7f0c0039
 			public const int icon_search_text = 2131492921;
 			
-			// aapt resource value: 0x7f0c0069
-			public const int interpolatingLineChartName = 2131492969;
+			// aapt resource value: 0x7f0c006a
+			public const int interpolatingLineChartName = 2131492970;
 			
-			// aapt resource value: 0x7f0c0077
-			public const int invertedPyramidChartName = 2131492983;
+			// aapt resource value: 0x7f0c0078
+			public const int invertedPyramidChartName = 2131492984;
 			
-			// aapt resource value: 0x7f0c008c
-			public const int knobGaugeChartName = 2131493004;
+			// aapt resource value: 0x7f0c008d
+			public const int knobGaugeChartName = 2131493005;
 			
-			// aapt resource value: 0x7f0c005c
-			public const int lineChartName = 2131492956;
+			// aapt resource value: 0x7f0c005d
+			public const int lineChartName = 2131492957;
 			
-			// aapt resource value: 0x7f0c0093
-			public const int linearGaugeChartName = 2131493011;
-			
-			// aapt resource value: 0x7f0c00a1
-			public const int lowFuncChartName = 2131493025;
-			
-			// aapt resource value: 0x7f0c0089
-			public const int mapGISChartName = 2131493001;
-			
-			// aapt resource value: 0x7f0c005b
-			public const int masterItemAboutus = 2131492955;
-			
-			// aapt resource value: 0x7f0c0059
-			public const int masterItemDocumentation = 2131492953;
-			
-			// aapt resource value: 0x7f0c0058
-			public const int masterItemGithub = 2131492952;
-			
-			// aapt resource value: 0x7f0c0056
-			public const int masterItemHome = 2131492950;
-			
-			// aapt resource value: 0x7f0c005a
-			public const int masterItemSettings = 2131492954;
-			
-			// aapt resource value: 0x7f0c0057
-			public const int masterItemWeb = 2131492951;
+			// aapt resource value: 0x7f0c0094
+			public const int linearGaugeChartName = 2131493012;
 			
 			// aapt resource value: 0x7f0c00a2
-			public const int medianFuncChartName = 2131493026;
+			public const int lowFuncChartName = 2131493026;
 			
-			// aapt resource value: 0x7f0c0096
-			public const int mobileBatteryChartName = 2131493014;
+			// aapt resource value: 0x7f0c008a
+			public const int mapGISChartName = 2131493002;
+			
+			// aapt resource value: 0x7f0c005c
+			public const int masterItemAboutus = 2131492956;
+			
+			// aapt resource value: 0x7f0c005a
+			public const int masterItemDocumentation = 2131492954;
+			
+			// aapt resource value: 0x7f0c0059
+			public const int masterItemGithub = 2131492953;
+			
+			// aapt resource value: 0x7f0c0057
+			public const int masterItemHome = 2131492951;
+			
+			// aapt resource value: 0x7f0c005b
+			public const int masterItemSettings = 2131492955;
+			
+			// aapt resource value: 0x7f0c0058
+			public const int masterItemWeb = 2131492952;
+			
+			// aapt resource value: 0x7f0c00a3
+			public const int medianFuncChartName = 2131493027;
+			
+			// aapt resource value: 0x7f0c0097
+			public const int mobileBatteryChartName = 2131493015;
 			
 			// aapt resource value: 0x7f0c002f
 			public const int mtrl_chip_close_icon_content_description = 2131492911;
 			
-			// aapt resource value: 0x7f0c006d
-			public const int multiPiesChartName = 2131492973;
+			// aapt resource value: 0x7f0c006e
+			public const int multiPiesChartName = 2131492974;
 			
-			// aapt resource value: 0x7f0c009c
-			public const int multiplyFuncChartName = 2131493020;
+			// aapt resource value: 0x7f0c009d
+			public const int multiplyFuncChartName = 2131493021;
 			
 			// aapt resource value: 0x7f0c0038
 			public const int navigation_drawer_close = 2131492920;
@@ -4676,11 +4679,11 @@ namespace TeeChartFeatures
 			// aapt resource value: 0x7f0c0037
 			public const int navigation_drawer_open = 2131492919;
 			
-			// aapt resource value: 0x7f0c0092
-			public const int numericGaugeChartName = 2131493010;
+			// aapt resource value: 0x7f0c0093
+			public const int numericGaugeChartName = 2131493011;
 			
-			// aapt resource value: 0x7f0c0091
-			public const int organizationalChartName = 2131493009;
+			// aapt resource value: 0x7f0c0092
+			public const int organizationalChartName = 2131493010;
 			
 			// aapt resource value: 0x7f0c0030
 			public const int password_toggle_content_description = 2131492912;
@@ -4697,128 +4700,128 @@ namespace TeeChartFeatures
 			// aapt resource value: 0x7f0c0034
 			public const int path_password_strike_through = 2131492916;
 			
-			// aapt resource value: 0x7f0c00a3
-			public const int percentChangeFuncChartName = 2131493027;
+			// aapt resource value: 0x7f0c00a4
+			public const int percentChangeFuncChartName = 2131493028;
 			
-			// aapt resource value: 0x7f0c005f
-			public const int pieChartName = 2131492959;
+			// aapt resource value: 0x7f0c0060
+			public const int pieChartName = 2131492960;
 			
-			// aapt resource value: 0x7f0c0068
-			public const int pointscatterChartName = 2131492968;
-			
-			// aapt resource value: 0x7f0c0074
-			public const int polarBarChartName = 2131492980;
-			
-			// aapt resource value: 0x7f0c0073
-			public const int polarChartName = 2131492979;
-			
-			// aapt resource value: 0x7f0c0076
-			public const int pyramidChartName = 2131492982;
+			// aapt resource value: 0x7f0c0069
+			public const int pointscatterChartName = 2131492969;
 			
 			// aapt resource value: 0x7f0c0075
-			public const int radarChartName = 2131492981;
+			public const int polarBarChartName = 2131492981;
 			
-			// aapt resource value: 0x7f0c006f
-			public const int realTimeChartName = 2131492975;
+			// aapt resource value: 0x7f0c0074
+			public const int polarChartName = 2131492980;
 			
-			// aapt resource value: 0x7f0c0094
-			public const int scalesChartName = 2131493012;
+			// aapt resource value: 0x7f0c0077
+			public const int pyramidChartName = 2131492983;
+			
+			// aapt resource value: 0x7f0c0076
+			public const int radarChartName = 2131492982;
+			
+			// aapt resource value: 0x7f0c0070
+			public const int realTimeChartName = 2131492976;
+			
+			// aapt resource value: 0x7f0c0095
+			public const int scalesChartName = 2131493013;
 			
 			// aapt resource value: 0x7f0c001b
 			public const int search_menu_title = 2131492891;
 			
-			// aapt resource value: 0x7f0c0070
-			public const int semiDonutChartName = 2131492976;
+			// aapt resource value: 0x7f0c0071
+			public const int semiDonutChartName = 2131492977;
 			
-			// aapt resource value: 0x7f0c006e
-			public const int semiPieChartName = 2131492974;
+			// aapt resource value: 0x7f0c006f
+			public const int semiPieChartName = 2131492975;
 			
-			// aapt resource value: 0x7f0c0067
-			public const int shapeChartName = 2131492967;
+			// aapt resource value: 0x7f0c0068
+			public const int shapeChartName = 2131492968;
 			
-			// aapt resource value: 0x7f0c007e
-			public const int smithChartName = 2131492990;
+			// aapt resource value: 0x7f0c007f
+			public const int smithChartName = 2131492991;
 			
-			// aapt resource value: 0x7f0c0098
-			public const int specialDatesChartName = 2131493016;
+			// aapt resource value: 0x7f0c0099
+			public const int specialDatesChartName = 2131493017;
 			
-			// aapt resource value: 0x7f0c0081
-			public const int speedTimeChartName = 2131492993;
+			// aapt resource value: 0x7f0c0082
+			public const int speedTimeChartName = 2131492994;
 			
-			// aapt resource value: 0x7f0c006c
-			public const int stackAreaChartName = 2131492972;
+			// aapt resource value: 0x7f0c006d
+			public const int stackAreaChartName = 2131492973;
 			
 			// aapt resource value: 0x7f0c0035
 			public const int status_bar_notification_info_overflow = 2131492917;
 			
-			// aapt resource value: 0x7f0c00a6
-			public const int steemaDescription = 2131493030;
+			// aapt resource value: 0x7f0c00a7
+			public const int steemaDescription = 2131493031;
 			
-			// aapt resource value: 0x7f0c0095
-			public const int sublinesChartName = 2131493013;
+			// aapt resource value: 0x7f0c0096
+			public const int sublinesChartName = 2131493014;
 			
-			// aapt resource value: 0x7f0c009b
-			public const int substractFuncChartName = 2131493019;
+			// aapt resource value: 0x7f0c009c
+			public const int substractFuncChartName = 2131493020;
 			
-			// aapt resource value: 0x7f0c0099
-			public const int tagCloudChartName = 2131493017;
+			// aapt resource value: 0x7f0c009a
+			public const int tagCloudChartName = 2131493018;
 			
-			// aapt resource value: 0x7f0c008d
-			public const int temperaturaKnobChartName = 2131493005;
-			
-			// aapt resource value: 0x7f0c0045
-			public const int titleCalendar = 2131492933;
-			
-			// aapt resource value: 0x7f0c003d
-			public const int titleCircularGauge = 2131492925;
-			
-			// aapt resource value: 0x7f0c0041
-			public const int titleClock = 2131492929;
-			
-			// aapt resource value: 0x7f0c0040
-			public const int titleKnobGauge = 2131492928;
-			
-			// aapt resource value: 0x7f0c0044
-			public const int titleLinearGauge = 2131492932;
-			
-			// aapt resource value: 0x7f0c003e
-			public const int titleMaps = 2131492926;
-			
-			// aapt resource value: 0x7f0c0043
-			public const int titleNumericGauge = 2131492931;
-			
-			// aapt resource value: 0x7f0c0042
-			public const int titleOrganizational = 2131492930;
-			
-			// aapt resource value: 0x7f0c003c
-			public const int titleProCharts = 2131492924;
-			
-			// aapt resource value: 0x7f0c003b
-			public const int titleStdCharts = 2131492923;
-			
-			// aapt resource value: 0x7f0c0047
-			public const int titleStdFunctions = 2131492935;
+			// aapt resource value: 0x7f0c008e
+			public const int temperaturaKnobChartName = 2131493006;
 			
 			// aapt resource value: 0x7f0c0046
-			public const int titleTagCloud = 2131492934;
+			public const int titleCalendar = 2131492934;
+			
+			// aapt resource value: 0x7f0c003e
+			public const int titleCircularGauge = 2131492926;
+			
+			// aapt resource value: 0x7f0c0042
+			public const int titleClock = 2131492930;
+			
+			// aapt resource value: 0x7f0c0041
+			public const int titleKnobGauge = 2131492929;
+			
+			// aapt resource value: 0x7f0c0045
+			public const int titleLinearGauge = 2131492933;
 			
 			// aapt resource value: 0x7f0c003f
-			public const int titleTreeMap = 2131492927;
+			public const int titleMaps = 2131492927;
 			
-			// aapt resource value: 0x7f0c0071
-			public const int transBubbleChartName = 2131492977;
+			// aapt resource value: 0x7f0c0044
+			public const int titleNumericGauge = 2131492932;
 			
-			// aapt resource value: 0x7f0c008b
-			public const int treeMapChartName = 2131493003;
+			// aapt resource value: 0x7f0c0043
+			public const int titleOrganizational = 2131492931;
+			
+			// aapt resource value: 0x7f0c003d
+			public const int titleProCharts = 2131492925;
+			
+			// aapt resource value: 0x7f0c003c
+			public const int titleStdCharts = 2131492924;
+			
+			// aapt resource value: 0x7f0c0048
+			public const int titleStdFunctions = 2131492936;
+			
+			// aapt resource value: 0x7f0c0047
+			public const int titleTagCloud = 2131492935;
+			
+			// aapt resource value: 0x7f0c0040
+			public const int titleTreeMap = 2131492928;
+			
+			// aapt resource value: 0x7f0c0072
+			public const int transBubbleChartName = 2131492978;
+			
+			// aapt resource value: 0x7f0c008c
+			public const int treeMapChartName = 2131493004;
+			
+			// aapt resource value: 0x7f0c0084
+			public const int volumeChartName = 2131492996;
 			
 			// aapt resource value: 0x7f0c0083
-			public const int volumeChartName = 2131492995;
+			public const int waterfallChartName = 2131492995;
 			
-			// aapt resource value: 0x7f0c0082
-			public const int waterfallChartName = 2131492994;
-			
-			// aapt resource value: 0x7f0c008a
-			public const int worldMapChartName = 2131493002;
+			// aapt resource value: 0x7f0c008b
+			public const int worldMapChartName = 2131493003;
 			
 			static String()
 			{

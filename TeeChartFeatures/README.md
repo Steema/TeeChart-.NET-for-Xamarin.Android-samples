@@ -1,5 +1,5 @@
 <a href="https://www.steema.com/product/net_android">
-<img align="right" src="http://www.teechart.net/img/logos/teechart_android.png">
+<img align="right" src="http://www.teechart.net/img/logos/teechart_android.png"/>
 </a>
 
 TeeChart Features for Xamarin.Android
@@ -11,10 +11,6 @@ This sample combines TeeChart for .NET CSharp combined with Xamarin.Android Comp
 |Platform|Build|
 |--|--| 
 | Android |Passing|
-
-#### Android
-
-![screenshot](https://github.com/Steema/TeeChart-.NET-for-Xamarin.Android-samples/tree/master/TeeChartFeatures/Resources/DROID_VIDEO_APP.gif)
 
 ## Sample Requeriments
 
